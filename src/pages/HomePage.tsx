@@ -1,50 +1,19 @@
-import {
-  Box,
-  CircularProgress,
-  Typography
-} from "@mui/material";
+import MainLayout from "../layout/MainLayout";
 
-import ProfileSection from "../components/Profile/ProfileSection";
-
-import ProjectsSection from "../components/Projects/ProjectsSection";
-
-import { usePortfolio } from "../hooks/usePortfolio";
+import HeroSection from "../sections/HeroSection";
+import AboutSection from "../sections/AboutSection";
+import ServicesSection from "../sections/ServiceSection";
 
 export default function HomePage() {
-
-  const {
-    data,
-    loading,
-    error
-  } = usePortfolio();
-
-  if (loading) {
-    return <CircularProgress />;
-  }
-
-  if (error || !data) {
-    return (
-      <Typography>
-        Error cargando información
-      </Typography>
-    );
-  }
-
   return (
-    <Box p={4}>
+    <MainLayout>
 
-      <ProfileSection
-        profile={data.perfil}
-      />
+      <HeroSection />
 
-      <Box mt={6}>
+      <AboutSection />
 
-        <ProjectsSection
-          projects={data.trabajos}
-        />
+      <ServicesSection />
 
-      </Box>
-
-    </Box>
+    </MainLayout>
   );
 }

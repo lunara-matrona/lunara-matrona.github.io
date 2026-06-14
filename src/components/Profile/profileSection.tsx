@@ -11,7 +11,7 @@ export default function ProfileSection({
 }: Props) {
 
   return (
-    <Stack spacing={2} alignItems="center">
+    <Stack sx={{ spacing: 2, alignItems: "center" }}>
 
       <Avatar
         src={profile.foto}
