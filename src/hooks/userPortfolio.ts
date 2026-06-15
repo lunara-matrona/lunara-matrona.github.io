@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 
 import { getPortfolio } from "../api/portfolioApi";
 
-import type { PortfolioResponse } from "../types/portfolio.types";
+import type {
+  PortfolioResponse,
+} from "../types/portfolio.types";
 
-export function usePortfolio() {
+export const usePortfolio = () => {
 
-  const [data, setData] =
+  const [portfolio, setPortfolio] =
     useState<PortfolioResponse | null>(null);
 
   const [loading, setLoading] =
@@ -17,16 +19,37 @@ export function usePortfolio() {
 
   useEffect(() => {
 
-    getPortfolio()
-      .then(setData)
-      .catch((e) => setError(e.message))
-      .finally(() => setLoading(false));
+    const fetchPortfolio = async () => {
+
+      try {
+
+        const data =
+          await getPortfolio();
+
+        setPortfolio(data);
+
+      } catch (err) {
+
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Error desconocido"
+        );
+
+      } finally {
+
+        setLoading(false);
+
+      }
+    };
+
+    fetchPortfolio();
 
   }, []);
 
   return {
-    data,
+    portfolio,
     loading,
-    error
+    error,
   };
-}
+};

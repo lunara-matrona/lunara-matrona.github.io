@@ -3,8 +3,13 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
+import type { Profile } from "../types/portfolio.types";
 
-export default function AboutSection() {
+interface Props {
+  profile: Profile;
+}
+
+export default function AboutSection({ profile }: Props) {
   return (
     <Paper
       id="about"
@@ -23,10 +28,7 @@ export default function AboutSection() {
       </Typography>
 
       <Typography>
-        Soy matrona titulada con experiencia
-        en atención integral de la mujer,
-        acompañamiento durante el embarazo,
-        control ginecológico y educación sexual.
+        {profile.sobre_mi}
       </Typography>
     </Paper>
   );

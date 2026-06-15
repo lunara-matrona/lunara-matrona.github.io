@@ -2,6 +2,7 @@ export interface Profile {
   nombre: string;
   profesion: string;
   descripcion: string;
+  sobre_mi: string;
   email: string;
   telefono: string;
   foto: string;
@@ -17,6 +18,7 @@ export interface Review {
   nombre: string;
   comentario: string;
   puntuacion: number;
+  estado: string;
 }
 
 export interface Skill {

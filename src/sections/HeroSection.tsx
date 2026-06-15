@@ -5,8 +5,13 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import type { Profile } from "../types/portfolio.types";
 
-export default function HeroSection() {
+interface Props {
+  profile: Profile;
+}
+
+export default function HeroSection({ profile }: Props) {
   return (
     <Box
       sx={{
@@ -17,7 +22,7 @@ export default function HeroSection() {
     >
       <Stack sx={{ direction: "column", spacing: 4, alignItems: "center" }}>
         <Avatar
-          src=""
+          src={profile.foto}
           sx={{
             width: 220,
             height: 220,
@@ -30,7 +35,7 @@ export default function HeroSection() {
             variant="h3"
             gutterBottom
           >
-            María Pérez
+            {profile.nombre}
           </Typography>
 
           <Typography
@@ -38,7 +43,7 @@ export default function HeroSection() {
             color="primary"
             gutterBottom
           >
-            Matrona
+            {profile.profesion}
           </Typography>
 
           <Typography
@@ -47,9 +52,7 @@ export default function HeroSection() {
               mb: 4,
             }}
           >
-            Acompañándote en cada etapa de tu salud
-            femenina con cercanía, profesionalismo
-            y atención personalizada.
+            {profile.descripcion}
           </Typography>
 
           <Stack direction="row" spacing={2}>
