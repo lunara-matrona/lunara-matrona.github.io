@@ -1,10 +1,10 @@
-name: Deploy Vite app to GitHub Pages
+name: Deploy Vite to GitHub Pages
 
 on:
   push:
     branches:
       - main
-      - master
+
   workflow_dispatch:
 
 permissions:
@@ -25,48 +25,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
+      - name: Checkout
+        uses: actions/checkout@v6
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v7
+      - name: Setup Node
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: lts/*
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build application with the correct Pages base path
-        shell: bash
-        run: |
-          REPOSITORY_NAME="${GITHUB_REPOSITORY#*/}"
+      - name: Build project
+        run: npm run build
 
-          if [[ "$REPOSITORY_NAME" == "${GITHUB_REPOSITORY_OWNER}.github.io" ]]; then
-            BASE_PATH="/"
-          else
-            BASE_PATH="/$REPOSITORY_NAME/"
-          fi
+      - name: Verify build
+        run: test -f dist/index.html
 
-          echo "Building with base path: $BASE_PATH"
-          npx tsc -b
-          npx vite build --base="$BASE_PATH"
-
-      - name: Verify build output
-        shell: bash
-        run: |
-          test -f dist/index.html
-          echo "dist/index.html exists"
-          find dist -maxdepth 2 -type f | sort
-
-      - name: Configure GitHub Pages
+      - name: Configure Pages
         uses: actions/configure-pages@v6
 
-      - name: Upload Pages artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v5
