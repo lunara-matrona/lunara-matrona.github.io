@@ -6,6 +6,7 @@ import TestimonialCard from "../components/ui/TestimonialCard";
 import { services } from "../data/services";
 import { testimonials } from "../data/testimonials";
 import { whatsappBookingUrl } from "../data/site";
+import { assetPath } from "../utils/assetPath";
 
 const routeSteps = [
   { title: "Adolescencia", text: "Cambios, primera menstruación y educación sexual." },
@@ -43,7 +44,7 @@ export default function HomePage() {
       <section className="about-preview section section--lavender">
         <div className="page-width about-preview__grid">
           <div className="about-preview__symbol-wrap">
-            <img src="/images/brand/lunara-symbol-white.png" alt="" className="about-preview__symbol" />
+            <img src={assetPath("images/brand/lunara-symbol-white.png")} alt="" className="about-preview__symbol" />
           </div>
           <div>
             <SectionHeading eyebrow="Sobre Lunara" title="Un espacio seguro para aprender, conversar y cuidarte" />
