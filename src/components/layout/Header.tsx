@@ -1,6 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { assets } from "../../assets";
 import { navigation, whatsappBookingUrl } from "../../data/site";
 
 export default function Header() {
@@ -10,7 +11,7 @@ export default function Header() {
     <header className="site-header">
       <div className="site-header__content page-width">
         <Link className="site-header__brand" to="/" onClick={() => setIsOpen(false)}>
-          <img src="/images/brand/lunara-logo-white.png" alt="Lunara, bienestar sexual y reproductivo" />
+          <img src={assets.brand.logoWhite} alt="Lunara, bienestar sexual y reproductivo" />
         </Link>
 
         <button

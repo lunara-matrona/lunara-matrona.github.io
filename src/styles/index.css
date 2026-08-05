@@ -301,7 +301,7 @@ p {
 }
 
 .hero__background {
-  background-image: url("/images/home/hero-lunara.png");
+  background-image: url("../assets/images/home/hero-lunara.png");
   background-size: cover;
   background-position: center 48%;
   transform: scale(1.015);
@@ -717,7 +717,7 @@ p {
 }
 
 .page-hero--about {
-  background: linear-gradient(90deg, rgb(82 36 91 / 91%), rgb(147 63 160 / 72%)), url("/images/home/hero-lunara.png") center 43% / cover;
+  background: linear-gradient(90deg, rgb(82 36 91 / 91%), rgb(147 63 160 / 72%)), url("../assets/images/home/hero-lunara.png") center 43% / cover;
 }
 
 .page-hero__content {

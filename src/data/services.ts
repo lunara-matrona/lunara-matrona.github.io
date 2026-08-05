@@ -1,3 +1,4 @@
+import { assets } from "../assets";
 import type { ServiceCategory } from "../types/content";
 
 export const services: ServiceCategory[] = [
@@ -10,7 +11,7 @@ export const services: ServiceCategory[] = [
       "Acompañamiento respetuoso para comprender los primeros cambios y vivirlos con información y confianza.",
     introduction:
       "Un espacio seguro para resolver dudas, conocer el cuerpo y fortalecer el autocuidado durante la adolescencia.",
-    image: "/images/services/adolescencia.png",
+    image: assets.services.adolescencia,
     featuredTopic: "Mi primer ciclo menstrual",
     topics: [
       "Primer ciclo menstrual",
@@ -48,7 +49,7 @@ export const services: ServiceCategory[] = [
       "Orientación preventiva y personalizada para tomar decisiones informadas sobre tu salud sexual y reproductiva.",
     introduction:
       "Atención cercana para controles preventivos, anticoncepción, planificación reproductiva y bienestar sexual.",
-    image: "/images/services/adultez-temprana.png",
+    image: assets.services.adultezTemprana,
     featuredTopic: "Mi primer PAP",
     topics: [
       "Orientación sobre PAP y controles preventivos",
@@ -86,7 +87,7 @@ export const services: ServiceCategory[] = [
       "Cuidado integral para acompañar los cambios físicos, hormonales y emocionales de esta etapa.",
     introduction:
       "Orientación profesional para prevenir, comprender y abordar cambios asociados al ciclo vital adulto.",
-    image: "/images/services/adultez-media.png",
+    image: assets.services.adultezMedia,
     featuredTopic: "Cuidados del piso pélvico",
     topics: [
       "Cuidados del piso pélvico",
@@ -123,7 +124,7 @@ export const services: ServiceCategory[] = [
       "Acompañamiento cálido durante el embarazo, la preparación para el parto y las primeras semanas después del nacimiento.",
     introduction:
       "Información y apoyo para transitar la gestación y el posparto de manera segura, consciente y acompañada.",
-    image: "/images/services/gestacion-posparto.png",
+    image: assets.services.gestacionPosparto,
     featuredTopic: "Preparación para el nacimiento",
     topics: [
       "Educación prenatal",
@@ -160,7 +161,7 @@ export const services: ServiceCategory[] = [
       "Espacios educativos participativos para colegios, comunidades, familias y organizaciones.",
     introduction:
       "Talleres diseñados según la edad, el contexto y los objetivos de cada grupo, con lenguaje cercano y actividades prácticas.",
-    image: "/images/services/talleres-grupales.png",
+    image: assets.services.talleresGrupales,
     featuredTopic: "Educación que se conversa",
     topics: [
       "Educación menstrual",

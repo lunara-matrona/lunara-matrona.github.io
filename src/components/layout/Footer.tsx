@@ -1,5 +1,6 @@
 import { Instagram, Mail, MapPin, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { assets } from "../../assets";
 import { contactInfo, navigation } from "../../data/site";
 
 export default function Footer() {
@@ -7,7 +8,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="site-footer__main page-width">
         <div className="site-footer__brand">
-          <img src="/images/brand/lunara-logo-white.png" alt="Lunara" />
+          <img src={assets.brand.logoWhite} alt="Lunara" />
           <p>Acompañamiento cercano, educativo y respetuoso en cada etapa de tu salud sexual y reproductiva.</p>
         </div>
 

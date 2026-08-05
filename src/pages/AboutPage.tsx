@@ -1,4 +1,5 @@
 import { BookOpenCheck, HeartHandshake, Home, ShieldCheck } from "lucide-react";
+import { assets } from "../assets";
 import ButtonLink from "../components/ui/ButtonLink";
 import SectionHeading from "../components/ui/SectionHeading";
 import { whatsappBookingUrl } from "../data/site";
@@ -17,7 +18,7 @@ export default function AboutPage() {
       <section className="section about-story">
         <div className="page-width about-story__grid">
           <div className="about-story__image-wrap">
-            <img src="/images/home/hero-lunara.png" alt="Instancia educativa de acompañamiento en salud sexual y reproductiva" />
+            <img src={assets.home.hero} alt="Instancia educativa de acompañamiento en salud sexual y reproductiva" />
             <div className="about-story__badge">Cercanía · educación · respeto</div>
           </div>
           <div className="about-story__content">
@@ -71,7 +72,7 @@ export default function AboutPage() {
 
       <section className="section about-cta">
         <div className="page-width about-cta__card">
-          <img src="/images/brand/lunara-symbol-white.png" alt="" />
+          <img src={assets.brand.symbolWhite} alt="" />
           <div>
             <p>Conoce la ruta de acompañamiento</p>
             <h2>Encuentra el servicio que se adapta a tu etapa</h2>
