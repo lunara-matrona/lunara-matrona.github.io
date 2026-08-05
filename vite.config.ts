@@ -3,8 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-
-  // Relative paths make the generated build work from any GitHub Pages
-  // repository path, even if the repository is renamed.
-  base: "./",
+  // En desarrollo se sirve desde la raíz. GitHub Actions reemplaza esta
+  // opción durante el build con la ruta exacta del repositorio.
+  base: "/portfolio-sami/",
 });
