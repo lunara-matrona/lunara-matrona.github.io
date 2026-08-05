@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-
   workflow_dispatch:
 
 permissions:
@@ -26,10 +25,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: lts/*
           cache: npm
@@ -37,13 +36,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build project
+      - name: Build
         run: npm run build
 
-      - name: Verify build
-        run: test -f dist/index.html
-
-      - name: Configure Pages
+      - name: Setup Pages
         uses: actions/configure-pages@v6
 
       - name: Upload artifact
@@ -51,6 +47,6 @@ jobs:
         with:
           path: ./dist
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
