@@ -1,11 +1,24 @@
 import { Box } from "@mui/material";
-import { servicios } from "../../../data/servicios";
+import { useContenido } from "../../../hooks/useContenido";
 import PageContainer from "../../common/PageContainer";
 import Section from "../../common/Section";
+import EsqueletoSeccion from "../../ui/EsqueletoSeccion";
 import SectionHeading from "../../ui/SectionHeading";
 import ServiceCard from "../../ui/ServiceCard";
 
 export default function ServicesCatalog() {
+  const { contenido, cargando } = useContenido();
+  const { servicios } = contenido;
+
+  if (cargando) {
+    return (
+      <Section>
+        <PageContainer>
+          <EsqueletoSeccion cantidad={5} columnas={{ xs: 1, md: 2, lg: 3 }} alturaTarjeta={340} />
+        </PageContainer>
+      </Section>
+    );
+  }
   return (
     <Section>
       {/* Catálogo completo de servicios disponibles. */}

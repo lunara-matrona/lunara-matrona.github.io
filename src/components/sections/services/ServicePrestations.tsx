@@ -1,7 +1,7 @@
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { Box, Paper, Stack, Typography } from "@mui/material";
 import type { CategoriaServicio } from "../../../types/contenido";
-import { urlReservaWhatsapp } from "../../../data/sitio";
+import { useContenido } from "../../../hooks/useContenido";
 import PageContainer from "../../common/PageContainer";
 import Section from "../../common/Section";
 import ButtonLink from "../../ui/ButtonLink";
@@ -11,6 +11,8 @@ interface PropiedadesPrestacionesServicio {
 }
 
 export default function ServicePrestations({ servicio }: PropiedadesPrestacionesServicio) {
+  const { contenido } = useContenido();
+  const { urlReservaWhatsapp } = contenido;
   return (
     <>
       {/* Prestaciones disponibles dentro del servicio seleccionado. */}

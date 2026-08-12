@@ -21,3 +21,22 @@ La hoja de cálculo y el frontend utilizan los mismos nombres de propiedades en 
 | `Hitos_Profesionales` | `perfilProfesional.hitos[]` |
 
 Las relaciones se realizan mediante `servicioId` y `prestacionId`. `orden` define el orden visual sin depender de la posición física de las filas.
+
+## Control de testimonios
+
+`Configuracion_Sitio.mostrarSeccionTestimonios` se transforma en:
+
+```json
+"mostrarSeccionTestimonios": true
+```
+
+`Testimonios.mostrarTestimonio` se transforma en un booleano por testimonio:
+
+```json
+{
+  "id": "testimonio-1",
+  "mostrarTestimonio": true
+}
+```
+
+El frontend primero evalúa `mostrarSeccionTestimonios` y luego filtra únicamente los testimonios cuyo `mostrarTestimonio` sea `true`.

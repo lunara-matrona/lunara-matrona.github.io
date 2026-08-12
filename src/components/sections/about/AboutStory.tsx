@@ -1,12 +1,14 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { recursos } from "../../../assets";
-import { urlReservaWhatsapp } from "../../../data/sitio";
+import { useContenido } from "../../../hooks/useContenido";
 import PageContainer from "../../common/PageContainer";
 import Section from "../../common/Section";
 import ButtonLink from "../../ui/ButtonLink";
 import SectionHeading from "../../ui/SectionHeading";
 
 export default function AboutStory() {
+  const { contenido } = useContenido();
+  const { urlReservaWhatsapp } = contenido;
   return (
     <Section>
       {/* Historia y esencia de Lunara dentro de la página Nosotros. */}

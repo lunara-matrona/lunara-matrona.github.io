@@ -19,3 +19,6 @@ export const informacionContacto: InformacionContacto = {
 
 export const urlReservaWhatsapp =
   "https://wa.me/56929889698?text=Hola%20Lunara%2C%20quisiera%20consultar%20por%20una%20atenci%C3%B3n.";
+
+
+export const mostrarSeccionTestimonios = true;

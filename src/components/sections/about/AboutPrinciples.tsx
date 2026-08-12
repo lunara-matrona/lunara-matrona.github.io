@@ -3,9 +3,10 @@ import HealthAndSafetyRoundedIcon from "@mui/icons-material/HealthAndSafetyRound
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import VolunteerActivismRoundedIcon from "@mui/icons-material/VolunteerActivismRounded";
 import { Box, Card, CardContent, Typography } from "@mui/material";
-import { principiosNosotros } from "../../../data/nosotros";
+import { useContenido } from "../../../hooks/useContenido";
 import PageContainer from "../../common/PageContainer";
 import Section from "../../common/Section";
+import EsqueletoSeccion from "../../ui/EsqueletoSeccion";
 import SectionHeading from "../../ui/SectionHeading";
 
 const iconos = {
@@ -16,6 +17,18 @@ const iconos = {
 };
 
 export default function AboutPrinciples() {
+  const { contenido, cargando } = useContenido();
+  const { principiosNosotros } = contenido;
+
+  if (cargando) {
+    return (
+      <Section sx={{ background: "linear-gradient(145deg, #8D3D9A, #55275D)" }}>
+        <PageContainer>
+          <EsqueletoSeccion oscuro cantidad={4} columnas={{ xs: 1, md: 2, lg: 4 }} alturaTarjeta={250} />
+        </PageContainer>
+      </Section>
+    );
+  }
   return (
     <Section sx={{ background: "linear-gradient(145deg, #8D3D9A, #55275D)" }}>
       {/* Principios que explican el enfoque de atención de Lunara. */}

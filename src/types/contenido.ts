@@ -49,7 +49,7 @@ export interface Testimonio {
   servicio: string;
   comentario: string;
   puntuacion: 1 | 2 | 3 | 4 | 5;
-  esEjemplo: boolean;
+  mostrarTestimonio: boolean;
 }
 
 export type TipoHitoProfesional = "experiencia" | "certificado" | "educacion" | "reconocimiento";
@@ -77,4 +77,38 @@ export interface PerfilProfesional {
   sobretituloTrayectoria: string;
   tituloTrayectoria: string;
   hitos: HitoProfesional[];
+}
+
+export interface PasoRuta {
+  titulo: string;
+  texto: string;
+}
+
+export type IconoValorInicio = "escudo" | "destellos" | "hogar" | "manos";
+
+export interface ValorInicio {
+  icono: IconoValorInicio;
+  titulo: string;
+  texto: string;
+}
+
+export type IconoPrincipioNosotros = "escudo" | "libro" | "manos" | "hogar";
+
+export interface PrincipioNosotros {
+  icono: IconoPrincipioNosotros;
+  titulo: string;
+  texto: string;
+}
+
+export interface ContenidoSitio {
+  navegacion: ElementoNavegacion[];
+  informacionContacto: InformacionContacto;
+  urlReservaWhatsapp: string;
+  pasosRuta: PasoRuta[];
+  valoresInicio: ValorInicio[];
+  principiosNosotros: PrincipioNosotros[];
+  mostrarSeccionTestimonios: boolean;
+  testimonios: Testimonio[];
+  servicios: CategoriaServicio[];
+  perfilProfesional: PerfilProfesional;
 }

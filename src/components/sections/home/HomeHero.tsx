@@ -1,11 +1,13 @@
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { Box, Stack, Typography } from "@mui/material";
 import { recursos } from "../../../assets";
-import { urlReservaWhatsapp } from "../../../data/sitio";
+import { useContenido } from "../../../hooks/useContenido";
 import PageContainer from "../../common/PageContainer";
 import ButtonLink from "../../ui/ButtonLink";
 
 export default function HomeHero() {
+  const { contenido } = useContenido();
+  const { urlReservaWhatsapp } = contenido;
   return (
     <Box component="section" sx={{ minHeight: { xs: 690, sm: 720, md: "calc(100vh - 92px)" }, position: "relative", display: "flex", alignItems: "center", overflow: "hidden", bgcolor: "primary.dark" }}>
       {/* Portada principal de la página de inicio. */}

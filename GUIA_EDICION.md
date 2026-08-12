@@ -56,3 +56,16 @@ Cada prestación en `src/data/prestaciones.ts` puede contener:
 ## Hoja de cálculo y Apps Script
 
 El archivo `LUNARA_contenido_editable_espanol.xlsx` replica esta misma estructura en español. El siguiente paso consiste en hacer que Apps Script lea esas hojas y reconstruya un JSON con estas mismas propiedades, evitando transformaciones de nombres entre Google Sheets y React.
+
+## Visibilidad de testimonios
+
+La sección de testimonios se controla desde Google Sheets:
+
+- `Configuracion_Sitio.mostrarSeccionTestimonios`: usa `sí` para mostrar toda la sección o `no` para ocultarla.
+- `Testimonios.mostrarTestimonio`: usa `sí` o `no` para decidir qué testimonios aparecen dentro del carrusel.
+
+Los testimonios visibles se muestran en un carrusel horizontal compacto. No es necesario modificar componentes para agregar, quitar u ocultar testimonios.
+
+## Estados de carga
+
+Las secciones principales que dependen del contenido remoto muestran componentes `Skeleton` de Material UI mientras Apps Script responde. Si la API falla, el contexto mantiene el respaldo local de `src/data`.

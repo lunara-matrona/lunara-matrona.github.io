@@ -1,10 +1,12 @@
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { Box, Stack, Typography } from "@mui/material";
-import { urlReservaWhatsapp } from "../../../data/sitio";
+import { useContenido } from "../../../hooks/useContenido";
 import PageContainer from "../../common/PageContainer";
 import ButtonLink from "../../ui/ButtonLink";
 
 export default function ServiceContactCta() {
+  const { contenido } = useContenido();
+  const { urlReservaWhatsapp } = contenido;
   return (
     <Box component="section" sx={{ py: { xs: 7.5, md: 8.75 }, bgcolor: "secondary.light" }}>
       {/* Orientación final para elegir el servicio correcto. */}

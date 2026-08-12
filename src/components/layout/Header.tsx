@@ -4,10 +4,12 @@ import { AppBar, Box, Button, Drawer, IconButton, Stack, Toolbar } from "@mui/ma
 import { useState } from "react";
 import { Link as RouterLink, NavLink } from "react-router-dom";
 import { recursos } from "../../assets";
-import { navegacion, urlReservaWhatsapp } from "../../data/sitio";
+import { useContenido } from "../../hooks/useContenido";
 import PageContainer from "../common/PageContainer";
 
 export default function Header() {
+  const { contenido } = useContenido();
+  const { navegacion, urlReservaWhatsapp } = contenido;
   const [estaAbierto, setEstaAbierto] = useState(false);
 
   const elementosNavegacion = (

@@ -1,11 +1,13 @@
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import { Alert, Box, Button, MenuItem, Paper, Stack, TextField, Typography } from "@mui/material";
 import { useState, type FormEvent } from "react";
-import { informacionContacto } from "../../../data/sitio";
+import { useContenido } from "../../../hooks/useContenido";
 
 const asuntos = ["Consulta sobre servicios", "Solicitud de taller grupal", "Colaboración o actividad educativa", "Otra consulta"];
 
 export default function ContactForm() {
+  const { contenido } = useContenido();
+  const { informacionContacto } = contenido;
   const [enviado, setEnviado] = useState(false);
 
   const manejarEnvio = (evento: FormEvent<HTMLFormElement>) => {

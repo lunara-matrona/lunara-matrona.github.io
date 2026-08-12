@@ -5,10 +5,12 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { Box, Divider, Stack, Typography } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { recursos } from "../../assets";
-import { informacionContacto, navegacion } from "../../data/sitio";
+import { useContenido } from "../../hooks/useContenido";
 import PageContainer from "../common/PageContainer";
 
 export default function Footer() {
+  const { contenido } = useContenido();
+  const { informacionContacto, navegacion } = contenido;
   const estilosEnlaceContacto = { display: "flex", alignItems: "center", gap: 1.25, color: "rgba(255,255,255,.65)", fontSize: ".87rem", "&:hover": { color: "common.white" } };
 
   return (

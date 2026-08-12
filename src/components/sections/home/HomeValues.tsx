@@ -3,8 +3,9 @@ import HealthAndSafetyRoundedIcon from "@mui/icons-material/HealthAndSafetyRound
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import VolunteerActivismRoundedIcon from "@mui/icons-material/VolunteerActivismRounded";
 import { Box, Typography } from "@mui/material";
-import { valoresInicio } from "../../../data/inicio";
+import { useContenido } from "../../../hooks/useContenido";
 import PageContainer from "../../common/PageContainer";
+import EsqueletoSeccion from "../../ui/EsqueletoSeccion";
 
 const iconos = {
   escudo: HealthAndSafetyRoundedIcon,
@@ -14,6 +15,18 @@ const iconos = {
 };
 
 export default function HomeValues() {
+  const { contenido, cargando } = useContenido();
+  const { valoresInicio } = contenido;
+
+  if (cargando) {
+    return (
+      <Box component="section" sx={{ py: { xs: 7.5, md: 8.75 }, bgcolor: "common.white" }}>
+        <PageContainer>
+          <EsqueletoSeccion cantidad={4} columnas={{ xs: 1, sm: 2, lg: 4 }} alturaTarjeta={205} mostrarEncabezado={false} />
+        </PageContainer>
+      </Box>
+    );
+  }
   return (
     <Box component="section" sx={{ py: { xs: 7.5, md: 8.75 }, bgcolor: "common.white" }}>
       {/* Valores principales que diferencian la atención de Lunara. */}

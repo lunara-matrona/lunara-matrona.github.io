@@ -3,7 +3,7 @@ import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { Box, Chip, Stack, Typography } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import type { CategoriaServicio } from "../../../types/contenido";
-import { urlReservaWhatsapp } from "../../../data/sitio";
+import { useContenido } from "../../../hooks/useContenido";
 import PageContainer from "../../common/PageContainer";
 import ButtonLink from "../../ui/ButtonLink";
 
@@ -12,6 +12,8 @@ interface PropiedadesDetalleServicio {
 }
 
 export default function ServiceDetailHero({ servicio }: PropiedadesDetalleServicio) {
+  const { contenido } = useContenido();
+  const { urlReservaWhatsapp } = contenido;
   return (
     <Box component="section" sx={{ py: { xs: 6.5, md: 10 }, color: "common.white", background: "linear-gradient(135deg, #55275D, #8D3D9A)" }}>
       {/* Portada con la información principal del servicio seleccionado. */}

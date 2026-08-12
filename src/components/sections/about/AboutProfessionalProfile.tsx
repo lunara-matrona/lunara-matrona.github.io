@@ -1,12 +1,35 @@
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { Box, Stack, Typography } from "@mui/material";
-import { perfilProfesional } from "../../../data/perfilProfesional";
+import { Box, Skeleton, Stack, Typography } from "@mui/material";
+import { useContenido } from "../../../hooks/useContenido";
 import PageContainer from "../../common/PageContainer";
 import Section from "../../common/Section";
 import ButtonLink from "../../ui/ButtonLink";
 import ProfessionalHighlightsCarousel from "./ProfessionalHighlightsCarousel";
 
 export default function AboutProfessionalProfile() {
+  const { contenido, cargando } = useContenido();
+  const { perfilProfesional } = contenido;
+
+  if (cargando) {
+    return (
+      <Section sx={{ bgcolor: "background.paper" }}>
+        <PageContainer>
+          <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "minmax(320px, .82fr) minmax(0, 1.18fr)" }, gap: { xs: 4.5, md: 7.5 }, alignItems: "center" }}>
+            <Skeleton variant="rounded" height={520} sx={{ borderRadius: 4 }} />
+            <Stack spacing={1.5}>
+              <Skeleton width={150} height={22} />
+              <Skeleton width="72%" height={62} />
+              <Skeleton width="48%" height={28} />
+              <Skeleton width="100%" height={24} />
+              <Skeleton width="96%" height={24} />
+              <Skeleton width="82%" height={24} />
+              <Skeleton variant="rounded" width={190} height={44} sx={{ mt: 2 }} />
+            </Stack>
+          </Box>
+        </PageContainer>
+      </Section>
+    );
+  }
   return (
     <Section sx={{ bgcolor: "background.paper" }}>
       {/* Perfil profesional de la persona detrás de Lunara. */}

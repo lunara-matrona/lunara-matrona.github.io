@@ -1,11 +1,24 @@
 import { Box, Stack, Typography } from "@mui/material";
-import { pasosRuta } from "../../../data/inicio";
+import { useContenido } from "../../../hooks/useContenido";
 import PageContainer from "../../common/PageContainer";
 import Section from "../../common/Section";
 import ButtonLink from "../../ui/ButtonLink";
+import EsqueletoSeccion from "../../ui/EsqueletoSeccion";
 import SectionHeading from "../../ui/SectionHeading";
 
 export default function HomeJourney() {
+  const { contenido, cargando } = useContenido();
+  const { pasosRuta } = contenido;
+
+  if (cargando) {
+    return (
+      <Section sx={{ color: "common.white", background: "linear-gradient(135deg, #55275D, #8D3D9A)" }}>
+        <PageContainer>
+          <EsqueletoSeccion oscuro cantidad={5} columnas={{ xs: 1, md: 3, lg: 5 }} alturaTarjeta={210} />
+        </PageContainer>
+      </Section>
+    );
+  }
   return (
     <Section sx={{ color: "common.white", background: "radial-gradient(circle at 85% 10%, rgba(255,255,255,.10), transparent 32%), linear-gradient(135deg, #55275D, #8D3D9A)" }}>
       {/* Ruta cronológica de acompañamiento de la página de inicio. */}

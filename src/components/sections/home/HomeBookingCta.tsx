@@ -1,10 +1,12 @@
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { Box, Stack, Typography } from "@mui/material";
-import { urlReservaWhatsapp } from "../../../data/sitio";
+import { useContenido } from "../../../hooks/useContenido";
 import PageContainer from "../../common/PageContainer";
 import ButtonLink from "../../ui/ButtonLink";
 
 export default function HomeBookingCta() {
+  const { contenido } = useContenido();
+  const { urlReservaWhatsapp } = contenido;
   return (
     <Box component="section" sx={{ py: { xs: 7.5, md: 8.75 }, bgcolor: "secondary.main" }}>
       {/* Llamado final para iniciar una conversación por WhatsApp. */}
