@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
@@ -5,11 +6,12 @@ import ScrollToTop from "../components/layout/ScrollToTop";
 
 export default function PublicLayout() {
   return (
-    <div className="app-shell">
+    <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      {/* Estructura general compartida por todas las páginas públicas. */}
       <ScrollToTop />
       <Header />
-      <Outlet />
+      <Box component="main" sx={{ flex: 1 }}><Outlet /></Box>
       <Footer />
-    </div>
+    </Box>
   );
 }

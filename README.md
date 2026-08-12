@@ -1,42 +1,28 @@
-# Lunara Front
+# Lunara Front — refactor Material UI
 
-Frontend de Lunara construido con React, TypeScript y Vite.
+Frontend de Lunara construido con React, TypeScript, Vite y Material UI.
 
-## Ejecutar localmente
+## Estructura principal
+
+- `src/theme/theme.ts`: colores, tipografías y estilos globales de Material UI.
+- `src/data`: textos, servicios, testimonios y datos editables.
+- `src/components/common`: contenedores y estructuras reutilizables.
+- `src/components/layout`: header, menú móvil, footer y layout público.
+- `src/components/sections`: secciones independientes agrupadas por página.
+- `src/components/ui`: tarjetas, botones y encabezados reutilizables.
+- `src/pages`: composición de cada página, con muy poca lógica visual.
+
+## Instalación
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Compilar
+## Compilación
 
 ```bash
 npm run build
-npm run preview
 ```
 
-La compilación se genera en `dist/`.
-
-## Publicar en GitHub Pages
-
-Este proyecto ya incluye `.github/workflows/deploy.yml`.
-
-1. Sube todos los archivos del proyecto a la rama `main` o `master`.
-2. En GitHub entra a `Settings > Pages`.
-3. En `Build and deployment`, selecciona `GitHub Actions` como fuente.
-4. Ve a la pestaña `Actions` y espera a que finalice `Deploy to GitHub Pages`.
-5. Abre la URL entregada por el workflow.
-
-El proyecto usa `HashRouter`, por lo que las rutas se verán así:
-
-```text
-https://usuario.github.io/repositorio/#/
-https://usuario.github.io/repositorio/#/servicios
-```
-
-También usa `base: "./"` e importa las imágenes desde `src/assets`, de modo que el build funciona aunque el repositorio cambie de nombre.
-
-## Importante
-
-No configures GitHub Pages como `Deploy from a branch` para publicar directamente el código fuente. Vite necesita compilar primero el proyecto y publicar la carpeta `dist`, proceso que realiza el workflow incluido.
+La presentación se gestiona principalmente mediante componentes y propiedades `sx` de Material UI. No existe una hoja CSS global extensa; los cambios generales se realizan desde el tema y los cambios particulares desde cada componente.

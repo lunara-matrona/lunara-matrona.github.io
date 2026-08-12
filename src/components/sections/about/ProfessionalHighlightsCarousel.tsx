@@ -1,0 +1,172 @@
+import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import EmojiEventsRoundedIcon from "@mui/icons-material/EmojiEventsRounded";
+import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
+import WorkOutlineRoundedIcon from "@mui/icons-material/WorkOutlineRounded";
+import WorkspacePremiumRoundedIcon from "@mui/icons-material/WorkspacePremiumRounded";
+import { Box, Card, CardActionArea, Chip, IconButton, Stack, Typography } from "@mui/material";
+import { useRef } from "react";
+import type { ProfessionalHighlight, ProfessionalHighlightType } from "../../../types/content";
+
+interface ProfessionalHighlightsCarouselProps {
+  items: ProfessionalHighlight[];
+}
+
+const highlightMeta: Record<ProfessionalHighlightType, { label: string; icon: typeof WorkOutlineRoundedIcon }> = {
+  experience: { label: "Experiencia", icon: WorkOutlineRoundedIcon },
+  certificate: { label: "Certificado", icon: WorkspacePremiumRoundedIcon },
+  education: { label: "Formación", icon: SchoolRoundedIcon },
+  recognition: { label: "Reconocimiento", icon: EmojiEventsRoundedIcon },
+};
+
+export default function ProfessionalHighlightsCarousel({ items }: ProfessionalHighlightsCarouselProps) {
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const scrollCarousel = (direction: "left" | "right") => {
+    carouselRef.current?.scrollBy({
+      left: direction === "right" ? 310 : -310,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <Box sx={{ position: "relative" }}>
+      {/* Carrusel compacto de experiencias, formación, certificados y reconocimientos. */}
+      <Stack direction="row" spacing={1} justifyContent="flex-end" sx={{ mb: 1.5 }}>
+        <IconButton
+          aria-label="Ver elementos anteriores"
+          onClick={() => scrollCarousel("left")}
+          size="small"
+          sx={{ border: "1px solid", borderColor: "divider", bgcolor: "common.white" }}
+        >
+          <ArrowBackRoundedIcon fontSize="small" />
+        </IconButton>
+        <IconButton
+          aria-label="Ver elementos siguientes"
+          onClick={() => scrollCarousel("right")}
+          size="small"
+          sx={{ border: "1px solid", borderColor: "divider", bgcolor: "common.white" }}
+        >
+          <ArrowForwardRoundedIcon fontSize="small" />
+        </IconButton>
+      </Stack>
+
+      <Box
+        ref={carouselRef}
+        sx={{
+          display: "flex",
+          gap: 2,
+          overflowX: "auto",
+          pb: 1,
+          scrollSnapType: "x mandatory",
+          scrollbarWidth: "none",
+          "&::-webkit-scrollbar": { display: "none" },
+        }}
+      >
+        {items.map((item) => {
+          const meta = highlightMeta[item.type];
+          const Icon = meta.icon;
+
+          const cardContent = (
+            <Box
+              sx={{
+                height: "100%",
+                display: "grid",
+                gridTemplateColumns: item.image ? "82px minmax(0, 1fr)" : "1fr",
+                gap: 2,
+                p: 2.25,
+              }}
+            >
+              {item.image && (
+                <Box
+                  component="img"
+                  src={item.image}
+                  alt=""
+                  sx={{ width: 82, height: 92, objectFit: "cover", borderRadius: 2 }}
+                />
+              )}
+
+              <Stack spacing={1} sx={{ minWidth: 0 }}>
+                <Stack direction="row" spacing={1} alignItems="center" justifyContent="space-between">
+                  <Chip
+                    icon={<Icon sx={{ fontSize: "16px !important" }} />}
+                    label={meta.label}
+                    size="small"
+                    sx={{
+                      height: 26,
+                      bgcolor: "secondary.light",
+                      color: "primary.dark",
+                      fontSize: ".72rem",
+                      fontWeight: 800,
+                    }}
+                  />
+                  {item.date && (
+                    <Typography sx={{ color: "text.secondary", fontSize: ".72rem", fontWeight: 700 }}>
+                      {item.date}
+                    </Typography>
+                  )}
+                </Stack>
+
+                <Typography sx={{ color: "primary.dark", fontSize: ".94rem", fontWeight: 800, lineHeight: 1.35 }}>
+                  {item.title}
+                </Typography>
+
+                {item.organization && (
+                  <Typography sx={{ color: "text.secondary", fontSize: ".74rem", fontWeight: 700, lineHeight: 1.45 }}>
+                    {item.organization}
+                  </Typography>
+                )}
+
+                {item.description && (
+                  <Typography
+                    sx={{
+                      color: "text.secondary",
+                      fontSize: ".76rem",
+                      lineHeight: 1.55,
+                      display: "-webkit-box",
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {item.description}
+                  </Typography>
+                )}
+              </Stack>
+            </Box>
+          );
+
+          return (
+            <Card
+              key={item.id}
+              component="article"
+              variant="outlined"
+              sx={{
+                flex: "0 0 285px",
+                minHeight: 172,
+                scrollSnapAlign: "start",
+                borderColor: "divider",
+                bgcolor: "common.white",
+                boxShadow: "0 10px 28px rgba(75,34,82,.06)",
+              }}
+            >
+              {item.url ? (
+                <CardActionArea
+                  component="a"
+                  href={item.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  sx={{ height: "100%", alignItems: "stretch" }}
+                >
+                  {cardContent}
+                </CardActionArea>
+              ) : (
+                cardContent
+              )}
+            </Card>
+          );
+        })}
+      </Box>
+    </Box>
+  );
+}

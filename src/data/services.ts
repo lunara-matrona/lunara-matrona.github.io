@@ -1,5 +1,12 @@
 import { assets } from "../assets";
 import type { ServiceCategory } from "../types/content";
+import {
+  adolescenciaPrestations,
+  adultezMediaPrestations,
+  adultezTempranaPrestations,
+  gestacionPospartoPrestations,
+  talleresGrupalesPrestations,
+} from "./prestations";
 
 export const services: ServiceCategory[] = [
   {
@@ -12,21 +19,11 @@ export const services: ServiceCategory[] = [
     introduction:
       "Un espacio seguro para resolver dudas, conocer el cuerpo y fortalecer el autocuidado durante la adolescencia.",
     image: assets.services.adolescencia,
-    featuredTopic: "Mi primer ciclo menstrual",
-    topics: [
-      "Primer ciclo menstrual",
-      "Educación sexual integral",
-      "Autocuidado y conocimiento corporal",
-      "Prevención de infecciones de transmisión sexual",
+    notice: [
+      "Estos talleres están enfocados hacia niños/as y adolescentes, sin embargo, puede realizarse para padres que busquen herramientas efectivas para dar educación a sus hijos/as.",
+      "Si el niño/a o adolescente es menor de 14 años debe estar obligatoriamente acompañado de un tutor legal.",
     ],
-    includes: [
-      "Conversación privada y sin juicios",
-      "Orientación adaptada a la edad",
-      "Material educativo para continuar aprendiendo",
-      "Espacio para resolver preguntas junto a una persona adulta responsable, cuando corresponda",
-    ],
-    idealFor:
-      "Adolescentes y familias que buscan orientación clara y respetuosa frente a los cambios físicos, emocionales y sociales de esta etapa.",
+    prestations: adolescenciaPrestations,
     faq: [
       {
         question: "¿La consulta puede realizarse con un adulto acompañante?",
@@ -50,21 +47,7 @@ export const services: ServiceCategory[] = [
     introduction:
       "Atención cercana para controles preventivos, anticoncepción, planificación reproductiva y bienestar sexual.",
     image: assets.services.adultezTemprana,
-    featuredTopic: "Mi primer PAP",
-    topics: [
-      "Orientación sobre PAP y controles preventivos",
-      "Consejería anticonceptiva",
-      "Planificación reproductiva",
-      "Salud sexual y prevención",
-    ],
-    includes: [
-      "Evaluación inicial y revisión de antecedentes relevantes",
-      "Educación para decidir con información",
-      "Plan de seguimiento según tus necesidades",
-      "Derivación oportuna cuando se requiera otra especialidad",
-    ],
-    idealFor:
-      "Personas que desean iniciar o mantener controles preventivos, resolver dudas sobre anticoncepción o recibir orientación en planificación reproductiva.",
+    prestations: adultezTempranaPrestations,
     faq: [
       {
         question: "¿Qué debo preparar para mi primera consulta?",
@@ -88,21 +71,7 @@ export const services: ServiceCategory[] = [
     introduction:
       "Orientación profesional para prevenir, comprender y abordar cambios asociados al ciclo vital adulto.",
     image: assets.services.adultezMedia,
-    featuredTopic: "Cuidados del piso pélvico",
-    topics: [
-      "Cuidados del piso pélvico",
-      "Climaterio y menopausia",
-      "Controles preventivos",
-      "Bienestar sexual",
-    ],
-    includes: [
-      "Entrevista enfocada en cambios y síntomas",
-      "Educación para el autocuidado cotidiano",
-      "Recomendaciones personalizadas y seguimiento",
-      "Orientación para consultar con otros profesionales cuando corresponda",
-    ],
-    idealFor:
-      "Personas que atraviesan cambios hormonales, desean fortalecer el piso pélvico o buscan mantener sus controles preventivos al día.",
+    prestations: adultezMediaPrestations,
     faq: [
       {
         question: "¿Es normal sentir cambios antes de la menopausia?",
@@ -125,21 +94,7 @@ export const services: ServiceCategory[] = [
     introduction:
       "Información y apoyo para transitar la gestación y el posparto de manera segura, consciente y acompañada.",
     image: assets.services.gestacionPosparto,
-    featuredTopic: "Preparación para el nacimiento",
-    topics: [
-      "Educación prenatal",
-      "Preparación para el parto",
-      "Cuidados del posparto",
-      "Orientación inicial en lactancia",
-    ],
-    includes: [
-      "Plan educativo según la etapa de gestación",
-      "Participación de la pareja o red de apoyo",
-      "Orientación para reconocer señales de alerta",
-      "Acompañamiento emocional y resolución de dudas",
-    ],
-    idealFor:
-      "Personas gestantes y familias que desean prepararse con anticipación, comprender los cambios del proceso y fortalecer su red de apoyo.",
+    prestations: gestacionPospartoPrestations,
     faq: [
       {
         question: "¿Puede participar mi pareja o acompañante?",
@@ -162,21 +117,7 @@ export const services: ServiceCategory[] = [
     introduction:
       "Talleres diseñados según la edad, el contexto y los objetivos de cada grupo, con lenguaje cercano y actividades prácticas.",
     image: assets.services.talleresGrupales,
-    featuredTopic: "Educación que se conversa",
-    topics: [
-      "Educación menstrual",
-      "Salud sexual y reproductiva",
-      "Autocuidado y prevención",
-      "Preparación para la maternidad y paternidad",
-    ],
-    includes: [
-      "Diagnóstico breve de necesidades",
-      "Contenido adaptado al grupo",
-      "Material de apoyo",
-      "Espacio guiado de preguntas y conversación",
-    ],
-    idealFor:
-      "Colegios, centros comunitarios, empresas, agrupaciones y familias que buscan una actividad educativa clara, respetuosa y participativa.",
+    prestations: talleresGrupalesPrestations,
     faq: [
       {
         question: "¿Los contenidos se pueden personalizar?",
