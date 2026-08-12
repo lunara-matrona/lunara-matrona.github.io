@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { testimonials } from "../../../data/testimonials";
+import { testimonios } from "../../../data/testimonios";
 import PageContainer from "../../common/PageContainer";
 import Section from "../../common/Section";
 import SectionHeading from "../../ui/SectionHeading";
@@ -10,9 +10,9 @@ export default function HomeTestimonials() {
     <Section sx={{ background: "linear-gradient(145deg, #8D3D9A, #55275D)" }}>
       {/* Testimonios y experiencias mostrados en la página de inicio. */}
       <PageContainer>
-        <SectionHeading eyebrow="Testimonios" title="Experiencias de acompañamiento" description="Estos textos son ejemplos de diseño y deben reemplazarse por testimonios reales autorizados antes de publicar el sitio." light />
+        <SectionHeading sobretitulo="Testimonios" titulo="Experiencias de acompañamiento" descripcion="Estos textos son ejemplos de diseño y deben reemplazarse por testimonios reales autorizados antes de publicar el sitio." claro />
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" }, gap: 3 }}>
-          {testimonials.map((testimonial) => <TestimonialCard key={testimonial.id} testimonial={testimonial} />)}
+          {testimonios.map((testimonio) => <TestimonialCard key={testimonio.id} testimonio={testimonio} />)}
         </Box>
       </PageContainer>
     </Section>

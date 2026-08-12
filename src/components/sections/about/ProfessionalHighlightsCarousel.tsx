@@ -6,25 +6,25 @@ import WorkOutlineRoundedIcon from "@mui/icons-material/WorkOutlineRounded";
 import WorkspacePremiumRoundedIcon from "@mui/icons-material/WorkspacePremiumRounded";
 import { Box, Card, CardActionArea, Chip, IconButton, Stack, Typography } from "@mui/material";
 import { useRef } from "react";
-import type { ProfessionalHighlight, ProfessionalHighlightType } from "../../../types/content";
+import type { HitoProfesional, TipoHitoProfesional } from "../../../types/contenido";
 
-interface ProfessionalHighlightsCarouselProps {
-  items: ProfessionalHighlight[];
+interface PropiedadesCarruselHitosProfesionales {
+  hitos: HitoProfesional[];
 }
 
-const highlightMeta: Record<ProfessionalHighlightType, { label: string; icon: typeof WorkOutlineRoundedIcon }> = {
-  experience: { label: "Experiencia", icon: WorkOutlineRoundedIcon },
-  certificate: { label: "Certificado", icon: WorkspacePremiumRoundedIcon },
-  education: { label: "Formación", icon: SchoolRoundedIcon },
-  recognition: { label: "Reconocimiento", icon: EmojiEventsRoundedIcon },
+const metadatosHitos: Record<TipoHitoProfesional, { etiqueta: string; icono: typeof WorkOutlineRoundedIcon }> = {
+  experiencia: { etiqueta: "Experiencia", icono: WorkOutlineRoundedIcon },
+  certificado: { etiqueta: "Certificado", icono: WorkspacePremiumRoundedIcon },
+  educacion: { etiqueta: "Formación", icono: SchoolRoundedIcon },
+  reconocimiento: { etiqueta: "Reconocimiento", icono: EmojiEventsRoundedIcon },
 };
 
-export default function ProfessionalHighlightsCarousel({ items }: ProfessionalHighlightsCarouselProps) {
-  const carouselRef = useRef<HTMLDivElement>(null);
+export default function CarruselHitosProfesionales({ hitos }: PropiedadesCarruselHitosProfesionales) {
+  const referenciaCarrusel = useRef<HTMLDivElement>(null);
 
-  const scrollCarousel = (direction: "left" | "right") => {
-    carouselRef.current?.scrollBy({
-      left: direction === "right" ? 310 : -310,
+  const desplazarCarrusel = (direccion: "izquierda" | "derecha") => {
+    referenciaCarrusel.current?.scrollBy({
+      left: direccion === "derecha" ? 310 : -310,
       behavior: "smooth",
     });
   };
@@ -35,7 +35,7 @@ export default function ProfessionalHighlightsCarousel({ items }: ProfessionalHi
       <Stack direction="row" spacing={1} justifyContent="flex-end" sx={{ mb: 1.5 }}>
         <IconButton
           aria-label="Ver elementos anteriores"
-          onClick={() => scrollCarousel("left")}
+          onClick={() => desplazarCarrusel("izquierda")}
           size="small"
           sx={{ border: "1px solid", borderColor: "divider", bgcolor: "common.white" }}
         >
@@ -43,7 +43,7 @@ export default function ProfessionalHighlightsCarousel({ items }: ProfessionalHi
         </IconButton>
         <IconButton
           aria-label="Ver elementos siguientes"
-          onClick={() => scrollCarousel("right")}
+          onClick={() => desplazarCarrusel("derecha")}
           size="small"
           sx={{ border: "1px solid", borderColor: "divider", bgcolor: "common.white" }}
         >
@@ -52,7 +52,7 @@ export default function ProfessionalHighlightsCarousel({ items }: ProfessionalHi
       </Stack>
 
       <Box
-        ref={carouselRef}
+        ref={referenciaCarrusel}
         sx={{
           display: "flex",
           gap: 2,
@@ -63,24 +63,24 @@ export default function ProfessionalHighlightsCarousel({ items }: ProfessionalHi
           "&::-webkit-scrollbar": { display: "none" },
         }}
       >
-        {items.map((item) => {
-          const meta = highlightMeta[item.type];
-          const Icon = meta.icon;
+        {hitos.map((hito) => {
+          const metadatos = metadatosHitos[hito.tipo];
+          const Icono = metadatos.icono;
 
-          const cardContent = (
+          const contenidoTarjeta = (
             <Box
               sx={{
                 height: "100%",
                 display: "grid",
-                gridTemplateColumns: item.image ? "82px minmax(0, 1fr)" : "1fr",
+                gridTemplateColumns: hito.imagen ? "82px minmax(0, 1fr)" : "1fr",
                 gap: 2,
                 p: 2.25,
               }}
             >
-              {item.image && (
+              {hito.imagen && (
                 <Box
                   component="img"
-                  src={item.image}
+                  src={hito.imagen}
                   alt=""
                   sx={{ width: 82, height: 92, objectFit: "cover", borderRadius: 2 }}
                 />
@@ -89,8 +89,8 @@ export default function ProfessionalHighlightsCarousel({ items }: ProfessionalHi
               <Stack spacing={1} sx={{ minWidth: 0 }}>
                 <Stack direction="row" spacing={1} alignItems="center" justifyContent="space-between">
                   <Chip
-                    icon={<Icon sx={{ fontSize: "16px !important" }} />}
-                    label={meta.label}
+                    icon={<Icono sx={{ fontSize: "16px !important" }} />}
+                    label={metadatos.etiqueta}
                     size="small"
                     sx={{
                       height: 26,
@@ -100,24 +100,24 @@ export default function ProfessionalHighlightsCarousel({ items }: ProfessionalHi
                       fontWeight: 800,
                     }}
                   />
-                  {item.date && (
+                  {hito.fecha && (
                     <Typography sx={{ color: "text.secondary", fontSize: ".72rem", fontWeight: 700 }}>
-                      {item.date}
+                      {hito.fecha}
                     </Typography>
                   )}
                 </Stack>
 
                 <Typography sx={{ color: "primary.dark", fontSize: ".94rem", fontWeight: 800, lineHeight: 1.35 }}>
-                  {item.title}
+                  {hito.titulo}
                 </Typography>
 
-                {item.organization && (
+                {hito.organizacion && (
                   <Typography sx={{ color: "text.secondary", fontSize: ".74rem", fontWeight: 700, lineHeight: 1.45 }}>
-                    {item.organization}
+                    {hito.organizacion}
                   </Typography>
                 )}
 
-                {item.description && (
+                {hito.descripcion && (
                   <Typography
                     sx={{
                       color: "text.secondary",
@@ -129,7 +129,7 @@ export default function ProfessionalHighlightsCarousel({ items }: ProfessionalHi
                       overflow: "hidden",
                     }}
                   >
-                    {item.description}
+                    {hito.descripcion}
                   </Typography>
                 )}
               </Stack>
@@ -138,7 +138,7 @@ export default function ProfessionalHighlightsCarousel({ items }: ProfessionalHi
 
           return (
             <Card
-              key={item.id}
+              key={hito.id}
               component="article"
               variant="outlined"
               sx={{
@@ -150,18 +150,18 @@ export default function ProfessionalHighlightsCarousel({ items }: ProfessionalHi
                 boxShadow: "0 10px 28px rgba(75,34,82,.06)",
               }}
             >
-              {item.url ? (
+              {hito.url ? (
                 <CardActionArea
                   component="a"
-                  href={item.url}
+                  href={hito.url}
                   target="_blank"
                   rel="noreferrer"
                   sx={{ height: "100%", alignItems: "stretch" }}
                 >
-                  {cardContent}
+                  {contenidoTarjeta}
                 </CardActionArea>
               ) : (
-                cardContent
+                contenidoTarjeta
               )}
             </Card>
           );

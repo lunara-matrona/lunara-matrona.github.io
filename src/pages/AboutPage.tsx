@@ -1,4 +1,4 @@
-import { assets } from "../assets";
+import { recursos } from "../assets";
 import PageHero from "../components/common/PageHero";
 import AboutPrinciples from "../components/sections/about/AboutPrinciples";
 import AboutProfessionalProfile from "../components/sections/about/AboutProfessionalProfile";
@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Composición de la página Nosotros. */}
-      <PageHero eyebrow="Nosotros" title="Más que una consulta: un espacio para sentirte acompañada" description="Lunara nace para acercar la educación y el cuidado en salud sexual y reproductiva a cada etapa de la vida." backgroundImage={assets.home.hero} />
+      <PageHero sobretitulo="Nosotros" titulo="Más que una consulta: un espacio para sentirte acompañada" descripcion="Lunara nace para acercar la educación y el cuidado en salud sexual y reproductiva a cada etapa de la vida." imagenFondo={recursos.inicio.portada} />
       <AboutProfessionalProfile />
       <AboutStory />
       <AboutPrinciples />

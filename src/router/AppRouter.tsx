@@ -15,7 +15,7 @@ export default function AppRouter() {
           <Route path="/" element={<HomePage />} />
           <Route path="/nosotros" element={<AboutPage />} />
           <Route path="/servicios" element={<ServicesPage />} />
-          <Route path="/servicios/:slug" element={<ServiceDetailPage />} />
+          <Route path="/servicios/:segmentoUrl" element={<ServiceDetailPage />} />
           <Route path="/contacto" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

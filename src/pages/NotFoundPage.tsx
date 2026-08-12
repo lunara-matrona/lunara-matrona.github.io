@@ -11,7 +11,7 @@ export default function NotFoundPage() {
           <Typography sx={{ color: "rgba(255,255,255,.30)", fontSize: "clamp(6rem, 20vw, 12rem)", fontWeight: 800, lineHeight: .9 }}>404</Typography>
           <Typography variant="h1" sx={{ mt: 3, mb: 2, fontSize: { xs: "2.5rem", md: "4rem" } }}>Esta página no existe</Typography>
           <Typography sx={{ mb: 3.5, color: "rgba(255,255,255,.75)" }}>Puede que el enlace haya cambiado o que la dirección esté incompleta.</Typography>
-          <ButtonLink to="/" variant="light">Volver al inicio</ButtonLink>
+          <ButtonLink destino="/" variante="claro">Volver al inicio</ButtonLink>
         </Stack>
       </PageContainer>
     </Box>

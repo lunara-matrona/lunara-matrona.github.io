@@ -1,6 +1,6 @@
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { Box, Stack, Typography } from "@mui/material";
-import { professionalProfile } from "../../../data/professionalProfile";
+import { perfilProfesional } from "../../../data/perfilProfesional";
 import PageContainer from "../../common/PageContainer";
 import Section from "../../common/Section";
 import ButtonLink from "../../ui/ButtonLink";
@@ -21,8 +21,8 @@ export default function AboutProfessionalProfile() {
         >
           <Box
             component="img"
-            src={professionalProfile.image}
-            alt={professionalProfile.imageAlt}
+            src={perfilProfesional.imagen}
+            alt={perfilProfesional.textoAlternativoImagen}
             sx={{
               width: "100%",
               height: { xs: 360, sm: 460, md: 520 },
@@ -43,42 +43,41 @@ export default function AboutProfessionalProfile() {
                 textTransform: "uppercase",
               }}
             >
-              {professionalProfile.eyebrow}
+              {perfilProfesional.sobretitulo}
             </Typography>
 
             <Typography
               variant="h2"
               sx={{ mb: 1.5, fontSize: { xs: "2.25rem", md: "3.7rem" }, lineHeight: 1.05 }}
             >
-              {professionalProfile.name}
+              {perfilProfesional.nombre}
             </Typography>
 
             <Typography sx={{ mb: 3, color: "primary.main", fontSize: "1rem", fontWeight: 800 }}>
-              {professionalProfile.role}
+              {perfilProfesional.cargo}
             </Typography>
 
-            {professionalProfile.summary.map((paragraph) => (
+            {perfilProfesional.resumen.map((parrafo) => (
               <Typography
-                key={paragraph}
+                key={parrafo}
                 sx={{ mb: 2, color: "text.secondary", lineHeight: 1.85, textAlign: "justify" }}
               >
-                {paragraph}
+                {parrafo}
               </Typography>
             ))}
 
-            <ButtonLink
-              to={professionalProfile.linkedinUrl}
-              external
-              variant="solid"
+            <ButtonLink destino={perfilProfesional.urlLinkedin}
+              externo
+              variante="solido"
               startIcon={<LinkedInIcon />}
               sx={{ mt: 1.5 }}
             >
-              {professionalProfile.linkedinLabel}
+              {perfilProfesional.textoLinkedin}
             </ButtonLink>
           </Stack>
         </Box>
 
-        {professionalProfile.highlights.length > 0 && (
+        {perfilProfesional.hitos.length > 0 && (
           <Box sx={{ mt: { xs: 6, md: 7.5 }, pt: { xs: 4, md: 5 }, borderTop: "1px solid", borderColor: "divider" }}>
             <Box
               sx={{
@@ -100,15 +99,15 @@ export default function AboutProfessionalProfile() {
                     textTransform: "uppercase",
                   }}
                 >
-                  {professionalProfile.highlightsEyebrow}
+                  {perfilProfesional.sobretituloTrayectoria}
                 </Typography>
                 <Typography variant="h3" sx={{ fontSize: { xs: "1.35rem", md: "1.65rem" } }}>
-                  {professionalProfile.highlightsTitle}
+                  {perfilProfesional.tituloTrayectoria}
                 </Typography>
               </Box>
             </Box>
 
-            <ProfessionalHighlightsCarousel items={professionalProfile.highlights} />
+            <ProfessionalHighlightsCarousel hitos={perfilProfesional.hitos} />
           </Box>
         )}
       </PageContainer>

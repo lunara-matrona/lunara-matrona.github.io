@@ -1,14 +1,14 @@
 import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 import { Accordion, AccordionDetails, AccordionSummary, Box, Stack, Typography } from "@mui/material";
-import type { ServiceCategory } from "../../../types/content";
+import type { CategoriaServicio } from "../../../types/contenido";
 import PageContainer from "../../common/PageContainer";
 import Section from "../../common/Section";
 
-interface ServiceFaqProps {
-  service: ServiceCategory;
+interface PropiedadesPreguntasServicio {
+  servicio: CategoriaServicio;
 }
 
-export default function ServiceFaq({ service }: ServiceFaqProps) {
+export default function ServiceFaq({ servicio }: PropiedadesPreguntasServicio) {
   return (
     <Section>
       {/* Preguntas frecuentes relacionadas con el servicio seleccionado. */}
@@ -19,13 +19,13 @@ export default function ServiceFaq({ service }: ServiceFaqProps) {
           <Typography color="text.secondary" sx={{ lineHeight: 1.8 }}>Estas respuestas entregan una orientación general. La recomendación final depende de cada situación.</Typography>
         </Box>
         <Stack spacing={1.5}>
-          {service.faq.map((item) => (
-            <Accordion key={item.question} disableGutters elevation={0} sx={{ border: "1px solid", borderColor: "divider", borderRadius: "16px !important", overflow: "hidden", "&::before": { display: "none" } }}>
+          {servicio.preguntasFrecuentes.map((preguntaFrecuente) => (
+            <Accordion key={preguntaFrecuente.pregunta} disableGutters elevation={0} sx={{ border: "1px solid", borderColor: "divider", borderRadius: "16px !important", overflow: "hidden", "&::before": { display: "none" } }}>
               <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />} sx={{ px: 2.5, py: .5 }}>
-                <Typography fontWeight={800} color="primary.dark">{item.question}</Typography>
+                <Typography fontWeight={800} color="primary.dark">{preguntaFrecuente.pregunta}</Typography>
               </AccordionSummary>
               <AccordionDetails sx={{ px: 2.5, pb: 2.5 }}>
-                <Typography color="text.secondary" sx={{ lineHeight: 1.75 }}>{item.answer}</Typography>
+                <Typography color="text.secondary" sx={{ lineHeight: 1.75 }}>{preguntaFrecuente.respuesta}</Typography>
               </AccordionDetails>
             </Accordion>
           ))}

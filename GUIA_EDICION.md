@@ -1,61 +1,58 @@
 # Guía rápida de edición
 
-## Contenido
+## Contenido editable
 
-Los textos y datos que cambian con mayor frecuencia se encuentran en `src/data`:
+Todo el contenido modificable está centralizado en `src/data` y utiliza nombres de variables y propiedades en español:
 
-- `site.ts`: navegación, correo, teléfono, Instagram, ciudad y enlace de WhatsApp.
-- `services.ts`: categorías, descripciones, imágenes, temas, elementos incluidos y preguntas frecuentes.
-- `testimonials.ts`: testimonios mostrados en Inicio.
-- `home.ts`: ruta de acompañamiento y valores de la marca.
-- `about.ts`: principios de la página Nosotros.
+- `sitio.ts`: navegación, correo, teléfono, Instagram, ciudad y reserva por WhatsApp.
+- `inicio.ts`: ruta de acompañamiento y valores de la página de Inicio.
+- `nosotros.ts`: principios de la página Nosotros.
+- `servicios.ts`: categorías, descripciones, avisos y preguntas frecuentes.
+- `prestaciones.ts`: prestaciones, precios, duración, modalidad, imágenes e inclusiones.
+- `testimonios.ts`: testimonios mostrados en Inicio.
+- `perfilProfesional.ts`: perfil, resumen, experiencia, formación y certificaciones.
+
+Los tipos compartidos están en `src/types/contenido.ts`.
+
+## Convención de nombres
+
+La estructura editable utiliza propiedades en español, por ejemplo:
+
+- `titulo`, `descripcion`, `imagen`, `precio`;
+- `duracion`, `modalidad`, `incluye`, `detalles`;
+- `segmentoUrl`, `rangoEdad`, `descripcionCorta`;
+- `preguntasFrecuentes`, `prestaciones`, `avisos`;
+- `nombre`, `comentario`, `puntuacion`;
+- `sobretitulo`, `cargo`, `resumen`, `hitos`.
+
+Los valores del tipo de hito profesional también están en español: `experiencia`, `certificado`, `educacion` y `reconocimiento`.
+
+> Los nombres pertenecientes a APIs externas de React, JavaScript y Material UI se conservan tal como los define cada biblioteca (`sx`, `variant`, `map`, `href`, etc.).
 
 ## Colores y tipografía
 
-Edita `src/theme/theme.ts`. Desde este archivo puedes cambiar:
-
-- paleta principal y secundaria;
-- fondo y colores de texto;
-- tipografías de títulos y contenido;
-- bordes generales de botones y tarjetas;
-- estilos globales de Material UI.
-
-## Secciones de cada página
-
-Las secciones visuales están agrupadas en `src/components/sections`:
-
-- `home`: página Inicio;
-- `about`: página Nosotros;
-- `contact`: información y formulario de contacto;
-- `services`: catálogo y detalle de servicios.
-
-Cada componente incluye un comentario breve que identifica la parte de la página que representa.
-
-## Componentes reutilizables
-
-- `src/components/common`: contenedor, sección y portada interior.
-- `src/components/ui`: botones, títulos, tarjetas de servicios y testimonios.
-- `src/components/layout`: navbar, menú móvil y footer.
+Edita `src/theme/theme.ts`. El tema se exporta como `tema` y concentra la paleta, tipografías y estilos globales de Material UI.
 
 ## Imágenes
 
-Reemplaza imágenes en `src/assets/images` conservando el nombre del archivo, o actualiza sus imports en `src/assets/index.ts`.
+El registro de imágenes está en `src/assets/index.ts` y se exporta como `recursos`. Sus grupos principales son `marca`, `inicio`, `servicios` y `prestaciones`.
 
-## Editar prestaciones de los servicios
+## Prestaciones
 
-Las prestaciones ahora están centralizadas en `src/data/prestations.ts`.
+Cada prestación en `src/data/prestaciones.ts` puede contener:
 
-Cada prestación permite editar:
+- `id`;
+- `titulo`;
+- `descripcion`;
+- `imagen`;
+- `precio`;
+- `duracion`;
+- `modalidad`;
+- `incluye`;
+- `detalles`.
 
-- `title`: nombre de la prestación.
-- `description`: descripción mostrada junto a la imagen.
-- `image`: imagen de la prestación.
-- `price`: valor de la prestación.
-- `duration`: duración, cuando corresponda.
-- `modality`: modalidad de atención, cuando corresponda.
-- `included`: elementos incluidos en el valor.
-- `details`: lista opcional para talleres, etapas o contenidos específicos.
+`ServiceDetailPage` obtiene la categoría desde `servicios` utilizando `segmentoUrl` y entrega la información a los componentes de detalle.
 
-`ServiceDetailPage` muestra estas prestaciones mediante `ServicePrestations.tsx`, alternando automáticamente la posición de imagen/contenido y el fondo de cada bloque.
+## Hoja de cálculo y Apps Script
 
-> Nota: la prestación N.º 3 de Adultez media figura incompleta en el documento entregado, por lo que no se inventó contenido y quedó marcada como pendiente dentro de `prestations.ts`.
+El archivo `LUNARA_contenido_editable_espanol.xlsx` replica esta misma estructura en español. El siguiente paso consiste en hacer que Apps Script lea esas hojas y reconstruya un JSON con estas mismas propiedades, evitando transformaciones de nombres entre Google Sheets y React.

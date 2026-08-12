@@ -1,6 +1,6 @@
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { Box, Stack, Typography } from "@mui/material";
-import { whatsappBookingUrl } from "../../../data/site";
+import { urlReservaWhatsapp } from "../../../data/sitio";
 import PageContainer from "../../common/PageContainer";
 import ButtonLink from "../../ui/ButtonLink";
 
@@ -15,7 +15,7 @@ export default function ServiceContactCta() {
             <Typography sx={{ mb: 1, fontSize: ".76rem", fontWeight: 800, letterSpacing: ".14em", textTransform: "uppercase" }}>¿No estás segura de qué servicio elegir?</Typography>
             <Typography variant="h2" sx={{ fontSize: { xs: "2rem", md: "2.75rem" }, lineHeight: 1.1 }}>Escríbenos y te orientamos</Typography>
           </Box>
-          <ButtonLink to={whatsappBookingUrl} external variant="light" sx={{ width: { xs: "100%", sm: "auto" }, flexShrink: 0 }}>Abrir WhatsApp</ButtonLink>
+          <ButtonLink destino={urlReservaWhatsapp} externo variante="claro" sx={{ width: { xs: "100%", sm: "auto" }, flexShrink: 0 }}>Abrir WhatsApp</ButtonLink>
         </Stack>
       </PageContainer>
     </Box>

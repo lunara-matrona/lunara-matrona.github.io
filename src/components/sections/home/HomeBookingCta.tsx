@@ -1,6 +1,6 @@
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { Box, Stack, Typography } from "@mui/material";
-import { whatsappBookingUrl } from "../../../data/site";
+import { urlReservaWhatsapp } from "../../../data/sitio";
 import PageContainer from "../../common/PageContainer";
 import ButtonLink from "../../ui/ButtonLink";
 
@@ -15,7 +15,7 @@ export default function HomeBookingCta() {
             <Typography variant="h2" sx={{ maxWidth: 740, mb: 1.5, fontSize: { xs: "2rem", md: "3rem" }, lineHeight: 1.1 }}>Conversemos sobre el acompañamiento que necesitas</Typography>
             <Typography sx={{ color: "rgba(255,255,255,.76)", lineHeight: 1.7 }}>También puedes consultar por actividades educativas, colaboraciones y servicios personalizados.</Typography>
           </Box>
-          <ButtonLink to={whatsappBookingUrl} external variant="light" endIcon={<ArrowForwardRoundedIcon />} sx={{ flexShrink: 0, width: { xs: "100%", sm: "auto" } }}>Escribir por WhatsApp</ButtonLink>
+          <ButtonLink destino={urlReservaWhatsapp} externo variante="claro" endIcon={<ArrowForwardRoundedIcon />} sx={{ flexShrink: 0, width: { xs: "100%", sm: "auto" } }}>Escribir por WhatsApp</ButtonLink>
         </Stack>
       </PageContainer>
     </Box>

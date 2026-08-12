@@ -16,6 +16,15 @@
 
 - Se eliminaron `ServiceTopics.tsx` y `ServiceIncludes.tsx` de la vista de detalle.
 - Se creó `ServicePrestations.tsx` para renderizar directamente cada prestación.
-- Se agregó `src/data/prestations.ts` con descripción, imagen, precio, duración, modalidad e inclusiones.
+- Se agregó `src/data/prestaciones.ts` con descripción, imagen, precio, duración, modalidad e inclusiones.
 - Las prestaciones alternan imagen/contenido y fondo para mantener el ritmo visual de la sección Nosotros.
 - `ServiceDetailHero` ahora toma como contenido destacado la primera prestación configurada.
+
+
+## Estructura editable en español
+
+- Los archivos de `src/data` fueron renombrados al español.
+- Los tipos compartidos ahora están en `src/types/contenido.ts`.
+- Las propiedades del contenido y las variables que lo consumen utilizan nombres en español.
+- `assets` pasó a exponerse como `recursos` y el tema como `tema`.
+- La estructura de la hoja de cálculo usa los mismos nombres que utilizará el JSON de Apps Script.

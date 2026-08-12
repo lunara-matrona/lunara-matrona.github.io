@@ -8,7 +8,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Composición de la página de contacto. */}
-      <PageHero eyebrow="Contacto" title="Conversemos" description="Si tienes preguntas, buscas un acompañamiento específico o quieres proponer una colaboración educativa, puedes escribirnos por el medio que te resulte más cómodo." />
+      <PageHero sobretitulo="Contacto" titulo="Conversemos" descripcion="Si tienes preguntas, buscas un acompañamiento específico o quieres proponer una colaboración educativa, puedes escribirnos por el medio que te resulte más cómodo." />
       <Section>
         <PageContainer sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: ".9fr 1.1fr" }, gap: { xs: 5.5, md: 8.75 } }}>
           <ContactInfoPanel />

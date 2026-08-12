@@ -1,20 +1,20 @@
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { Box, Paper, Stack, Typography } from "@mui/material";
-import type { ServiceCategory } from "../../../types/content";
-import { whatsappBookingUrl } from "../../../data/site";
+import type { CategoriaServicio } from "../../../types/contenido";
+import { urlReservaWhatsapp } from "../../../data/sitio";
 import PageContainer from "../../common/PageContainer";
 import Section from "../../common/Section";
 import ButtonLink from "../../ui/ButtonLink";
 
-interface ServicePrestationsProps {
-  service: ServiceCategory;
+interface PropiedadesPrestacionesServicio {
+  servicio: CategoriaServicio;
 }
 
-export default function ServicePrestations({ service }: ServicePrestationsProps) {
+export default function ServicePrestations({ servicio }: PropiedadesPrestacionesServicio) {
   return (
     <>
       {/* Prestaciones disponibles dentro del servicio seleccionado. */}
-      {service.notice && service.notice.length > 0 && (
+      {servicio.avisos && servicio.avisos.length > 0 && (
         <Section sx={{ py: { xs: 5, md: 6 }, bgcolor: "secondary.light" }}>
           <PageContainer>
             <Paper
@@ -42,9 +42,9 @@ export default function ServicePrestations({ service }: ServicePrestationsProps)
                 Antes de agendar
               </Typography>
               <Stack spacing={1}>
-                {service.notice.map((notice) => (
-                  <Typography key={notice} color="text.secondary" sx={{ lineHeight: 1.75 }}>
-                    {notice}
+                {servicio.avisos.map((aviso) => (
+                  <Typography key={aviso} color="text.secondary" sx={{ lineHeight: 1.75 }}>
+                    {aviso}
                   </Typography>
                 ))}
               </Stack>
@@ -53,13 +53,13 @@ export default function ServicePrestations({ service }: ServicePrestationsProps)
         </Section>
       )}
 
-      {service.prestations.map((prestation, index) => {
-        const imageOnLeft = index % 2 === 0;
+      {servicio.prestaciones.map((prestacion, indice) => {
+        const imagenALaIzquierda = indice % 2 === 0;
 
         return (
           <Section
-            key={prestation.id}
-            sx={{ bgcolor: index % 2 === 0 ? "common.white" : "background.default" }}
+            key={prestacion.id}
+            sx={{ bgcolor: indice % 2 === 0 ? "common.white" : "background.default" }}
           >
             <PageContainer
               sx={{
@@ -69,11 +69,11 @@ export default function ServicePrestations({ service }: ServicePrestationsProps)
                 gap: { xs: 5, md: 8 },
               }}
             >
-              <Box sx={{ order: { xs: 1, md: imageOnLeft ? 1 : 2 } }}>
+              <Box sx={{ order: { xs: 1, md: imagenALaIzquierda ? 1 : 2 } }}>
                 <Box
                   component="img"
-                  src={prestation.image}
-                  alt={prestation.title}
+                  src={prestacion.imagen}
+                  alt={prestacion.titulo}
                   sx={{
                     width: "100%",
                     height: { xs: 320, sm: 420, md: 520 },
@@ -86,7 +86,7 @@ export default function ServicePrestations({ service }: ServicePrestationsProps)
 
               <Stack
                 alignItems="flex-start"
-                sx={{ order: { xs: 2, md: imageOnLeft ? 2 : 1 } }}
+                sx={{ order: { xs: 2, md: imagenALaIzquierda ? 2 : 1 } }}
               >
                 <Typography
                   sx={{
@@ -98,7 +98,7 @@ export default function ServicePrestations({ service }: ServicePrestationsProps)
                     textTransform: "uppercase",
                   }}
                 >
-                  Prestación {String(index + 1).padStart(2, "0")}
+                  Prestación {String(indice + 1).padStart(2, "0")}
                 </Typography>
 
                 <Typography
@@ -109,23 +109,23 @@ export default function ServicePrestations({ service }: ServicePrestationsProps)
                     lineHeight: 1.08,
                   }}
                 >
-                  {prestation.title}
+                  {prestacion.titulo}
                 </Typography>
 
                 <Typography color="text.secondary" sx={{ mb: 3, lineHeight: 1.85 }}>
-                  {prestation.description}
+                  {prestacion.descripcion}
                 </Typography>
 
-                {prestation.details && prestation.details.length > 0 && (
+                {prestacion.detalles && prestacion.detalles.length > 0 && (
                   <Stack component="ul" spacing={1.1} sx={{ mt: 0, mb: 3, pl: 2.5 }}>
-                    {prestation.details.map((detail) => (
+                    {prestacion.detalles.map((detalle) => (
                       <Typography
                         component="li"
-                        key={detail}
+                        key={detalle}
                         color="text.secondary"
                         sx={{ pl: 0.5, lineHeight: 1.7 }}
                       >
-                        {detail}
+                        {detalle}
                       </Typography>
                     ))}
                   </Stack>
@@ -156,12 +156,12 @@ export default function ServicePrestations({ service }: ServicePrestationsProps)
                     Valor de la prestación
                   </Typography>
                   <Typography
-                    sx={{ mb: prestation.duration || prestation.modality ? 2 : 0, color: "primary.dark", fontSize: { xs: "1.75rem", sm: "2rem" }, fontWeight: 800 }}
+                    sx={{ mb: prestacion.duracion || prestacion.modalidad ? 2 : 0, color: "primary.dark", fontSize: { xs: "1.75rem", sm: "2rem" }, fontWeight: 800 }}
                   >
-                    {prestation.price}
+                    {prestacion.precio}
                   </Typography>
 
-                  {(prestation.duration || prestation.modality) && (
+                  {(prestacion.duracion || prestacion.modalidad) && (
                     <Box
                       sx={{
                         display: "grid",
@@ -169,39 +169,38 @@ export default function ServicePrestations({ service }: ServicePrestationsProps)
                         gap: 2,
                       }}
                     >
-                      {prestation.duration && (
+                      {prestacion.duracion && (
                         <Box>
                           <Typography sx={{ mb: 0.25, fontSize: ".72rem", fontWeight: 800, textTransform: "uppercase" }}>
                             Duración
                           </Typography>
-                          <Typography color="text.secondary">{prestation.duration}</Typography>
+                          <Typography color="text.secondary">{prestacion.duracion}</Typography>
                         </Box>
                       )}
-                      {prestation.modality && (
+                      {prestacion.modalidad && (
                         <Box>
                           <Typography sx={{ mb: 0.25, fontSize: ".72rem", fontWeight: 800, textTransform: "uppercase" }}>
                             Modalidad
                           </Typography>
-                          <Typography color="text.secondary">{prestation.modality}</Typography>
+                          <Typography color="text.secondary">{prestacion.modalidad}</Typography>
                         </Box>
                       )}
                     </Box>
                   )}
                 </Paper>
 
-                {prestation.included && (
+                {prestacion.incluye && (
                   <Typography color="text.secondary" sx={{ mb: 3.5, lineHeight: 1.75 }}>
                     <Box component="span" sx={{ color: "text.primary", fontWeight: 800 }}>
                       Incluye: {" "}
                     </Box>
-                    {prestation.included}
+                    {prestacion.incluye}
                   </Typography>
                 )}
 
-                <ButtonLink
-                  to={whatsappBookingUrl}
-                  external
-                  variant="solid"
+                <ButtonLink destino={urlReservaWhatsapp}
+                  externo
+                  variante="solido"
                   endIcon={<ArrowForwardRoundedIcon />}
                 >
                   Consultar esta prestación

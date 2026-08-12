@@ -1,7 +1,7 @@
-import lunaraLogoWhite from "./images/brand/lunara-logo-white.png";
-import lunaraLogoWideWhite from "./images/brand/lunara-logo-white-wide.png";
-import lunaraSymbolWhite from "./images/brand/lunara-symbol-white.png";
-import heroLunara from "./images/home/hero-lunara.png";
+import logoLunaraBlancoCuadrado from "./images/brand/lunara-logo-white.png";
+import logoLunaraBlanco from "./images/brand/lunara-logo-white-wide.png";
+import simboloLunaraBlanco from "./images/brand/lunara-symbol-white.png";
+import portadaLunara from "./images/home/hero-lunara.png";
 import rutaAcompanamiento from "./images/home/ruta-acompanamiento.png";
 import adolescencia from "./images/services/adolescencia.png";
 import adultezMedia from "./images/services/adultez-media.png";
@@ -10,23 +10,23 @@ import gestacionPosparto from "./images/services/gestacion-posparto.png";
 import talleresGrupales from "./images/services/talleres-grupales.png";
 import anticoncepcion from "./images/services/prestations/anticoncepcion.png";
 
-export const assets = {
-  brand: {
-    logoWhite: lunaraLogoWideWhite,
-    logoSquareWhite: lunaraLogoWhite,
-    symbolWhite: lunaraSymbolWhite,
+export const recursos = {
+  marca: {
+    logoBlanco: logoLunaraBlanco,
+    logoCuadradoBlanco: logoLunaraBlancoCuadrado,
+    simboloBlanco: simboloLunaraBlanco,
   },
-  home: {
-    hero: heroLunara,
-    route: rutaAcompanamiento,
+  inicio: {
+    portada: portadaLunara,
+    rutaAcompanamiento,
   },
-  services: {
+  servicios: {
     adolescencia,
     adultezMedia,
     adultezTemprana,
     gestacionPosparto,
     talleresGrupales,
-    prestations: {
+    prestaciones: {
       anticoncepcion,
     },
   },

@@ -3,22 +3,22 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import { AppBar, Box, Button, Drawer, IconButton, Stack, Toolbar } from "@mui/material";
 import { useState } from "react";
 import { Link as RouterLink, NavLink } from "react-router-dom";
-import { assets } from "../../assets";
-import { navigation, whatsappBookingUrl } from "../../data/site";
+import { recursos } from "../../assets";
+import { navegacion, urlReservaWhatsapp } from "../../data/sitio";
 import PageContainer from "../common/PageContainer";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [estaAbierto, setEstaAbierto] = useState(false);
 
-  const navigationItems = (
+  const elementosNavegacion = (
     <>
-      {navigation.map((item) => (
+      {navegacion.map((elemento) => (
         <Button
-          key={item.path}
+          key={elemento.ruta}
           component={NavLink}
-          to={item.path}
-          end={item.path === "/"}
-          onClick={() => setIsOpen(false)}
+          to={elemento.ruta}
+          end={elemento.ruta === "/"}
+          onClick={() => setEstaAbierto(false)}
           sx={{
             color: "rgba(255,255,255,.88)",
             px: 1.25,
@@ -28,15 +28,15 @@ export default function Header() {
             "&:hover": { bgcolor: "rgba(255,255,255,.08)" },
           }}
         >
-          {item.label}
+          {elemento.etiqueta}
         </Button>
       ))}
       <Button
         component="a"
-        href={whatsappBookingUrl}
+        href={urlReservaWhatsapp}
         target="_blank"
         rel="noreferrer"
-        onClick={() => setIsOpen(false)}
+        onClick={() => setEstaAbierto(false)}
         variant="outlined"
         sx={{ color: "common.white", borderColor: "rgba(255,255,255,.65)", textTransform: "uppercase", letterSpacing: ".08em", fontSize: ".82rem", "&:hover": { bgcolor: "common.white", color: "primary.dark", borderColor: "common.white" } }}
       >
@@ -50,25 +50,25 @@ export default function Header() {
       {/* Barra de navegación principal del sitio. */}
       <PageContainer>
         <Toolbar disableGutters sx={{ minHeight: { xs: 88, md: 104 }, justifyContent: "space-between", gap: 3 }}>
-          <Box component={RouterLink} to="/" onClick={() => setIsOpen(false)} sx={{ flexShrink: 0 }}>
-            <Box component="img" src={assets.brand.logoWhite} alt="Lunara, bienestar sexual y reproductivo" sx={{ width: { xs: 205, sm: 230, md: 275 }, height: "auto", maxHeight: { xs: 60, md: 76 }, objectFit: "contain", objectPosition: "left center" }} />
+          <Box component={RouterLink} to="/" onClick={() => setEstaAbierto(false)} sx={{ flexShrink: 0 }}>
+            <Box component="img" src={recursos.marca.logoBlanco} alt="Lunara, bienestar sexual y reproductivo" sx={{ width: { xs: 205, sm: 230, md: 275 }, height: "auto", maxHeight: { xs: 60, md: 76 }, objectFit: "contain", objectPosition: "left center" }} />
           </Box>
 
           <Stack component="nav" direction="row" alignItems="center" spacing={1.5} aria-label="Navegación principal" sx={{ display: { xs: "none", md: "flex" } }}>
-            {navigationItems}
+            {elementosNavegacion}
           </Stack>
 
-          <IconButton aria-label="Abrir menú" onClick={() => setIsOpen(true)} sx={{ display: { xs: "inline-flex", md: "none" }, color: "common.white", border: "1px solid rgba(255,255,255,.45)" }}>
+          <IconButton aria-label="Abrir menú" onClick={() => setEstaAbierto(true)} sx={{ display: { xs: "inline-flex", md: "none" }, color: "common.white", border: "1px solid rgba(255,255,255,.45)" }}>
             <MenuRoundedIcon />
           </IconButton>
         </Toolbar>
       </PageContainer>
 
-      <Drawer anchor="right" open={isOpen} onClose={() => setIsOpen(false)} slotProps={{ paper: { sx: { width: "min(86vw, 330px)", bgcolor: "primary.dark", color: "common.white", p: 2 } } }}>
+      <Drawer anchor="right" open={estaAbierto} onClose={() => setEstaAbierto(false)} slotProps={{ paper: { sx: { width: "min(86vw, 330px)", bgcolor: "primary.dark", color: "common.white", p: 2 } } }}>
         <Stack direction="row" justifyContent="flex-end" mb={2}>
-          <IconButton aria-label="Cerrar menú" onClick={() => setIsOpen(false)} sx={{ color: "common.white" }}><CloseRoundedIcon /></IconButton>
+          <IconButton aria-label="Cerrar menú" onClick={() => setEstaAbierto(false)} sx={{ color: "common.white" }}><CloseRoundedIcon /></IconButton>
         </Stack>
-        <Stack component="nav" spacing={1} aria-label="Navegación móvil">{navigationItems}</Stack>
+        <Stack component="nav" spacing={1} aria-label="Navegación móvil">{elementosNavegacion}</Stack>
       </Drawer>
     </AppBar>
   );

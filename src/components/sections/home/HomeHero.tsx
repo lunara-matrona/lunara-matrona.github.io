@@ -1,7 +1,7 @@
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { Box, Stack, Typography } from "@mui/material";
-import { assets } from "../../../assets";
-import { whatsappBookingUrl } from "../../../data/site";
+import { recursos } from "../../../assets";
+import { urlReservaWhatsapp } from "../../../data/sitio";
 import PageContainer from "../../common/PageContainer";
 import ButtonLink from "../../ui/ButtonLink";
 
@@ -9,7 +9,7 @@ export default function HomeHero() {
   return (
     <Box component="section" sx={{ minHeight: { xs: 690, sm: 720, md: "calc(100vh - 92px)" }, position: "relative", display: "flex", alignItems: "center", overflow: "hidden", bgcolor: "primary.dark" }}>
       {/* Portada principal de la página de inicio. */}
-      <Box sx={{ position: "absolute", inset: 0, backgroundImage: `url(${assets.home.hero})`, backgroundSize: "cover", backgroundPosition: { xs: "62% center", sm: "58% center", md: "center 48%" }, transform: "scale(1.015)" }} />
+      <Box sx={{ position: "absolute", inset: 0, backgroundImage: `url(${recursos.inicio.portada})`, backgroundSize: "cover", backgroundPosition: { xs: "62% center", sm: "58% center", md: "center 48%" }, transform: "scale(1.015)" }} />
       <Box sx={{ position: "absolute", inset: 0, background: { xs: "linear-gradient(90deg, rgba(67,23,74,.96), rgba(97,34,108,.88))", sm: "linear-gradient(90deg, rgba(69,24,77,.93) 0%, rgba(111,40,122,.78) 68%, rgba(166,78,181,.42) 100%)", md: "linear-gradient(90deg, rgba(75,28,83,.92) 0%, rgba(126,47,139,.72) 46%, rgba(166,78,181,.32) 100%)" } }} />
       <PageContainer sx={{ position: "relative", zIndex: 1, py: { xs: 10, md: 10 } }}>
         <Box sx={{ maxWidth: 760, color: "common.white" }}>
@@ -21,8 +21,8 @@ export default function HomeHero() {
             Un entorno cercano, educativo y respetuoso para resolver dudas, prepararte para nuevas etapas y tomar decisiones con confianza.
           </Typography>
           <Stack direction={{ xs: "column", sm: "row" }} spacing={1.75} sx={{ alignItems: { xs: "stretch", sm: "center" } }}>
-            <ButtonLink to={whatsappBookingUrl} external variant="light" endIcon={<ArrowForwardRoundedIcon />}>Agendar atención</ButtonLink>
-            <ButtonLink to="/servicios" variant="outline">Ver servicios</ButtonLink>
+            <ButtonLink destino={urlReservaWhatsapp} externo variante="claro" endIcon={<ArrowForwardRoundedIcon />}>Agendar atención</ButtonLink>
+            <ButtonLink destino="/servicios" variante="contorno">Ver servicios</ButtonLink>
           </Stack>
         </Box>
       </PageContainer>
