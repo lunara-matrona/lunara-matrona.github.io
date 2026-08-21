@@ -2,7 +2,7 @@ import type { InformacionContacto, ElementoNavegacion } from "../types/contenido
 
 export const navegacion: ElementoNavegacion[] = [
   { etiqueta: "Inicio", ruta: "/" },
-  { etiqueta: "Nosotros", ruta: "/nosotros" },
+  { etiqueta: "Sobre Mi", ruta: "/sobre-mi" },
   { etiqueta: "Servicios", ruta: "/servicios" },
   { etiqueta: "Contacto", ruta: "/contacto" },
 ];

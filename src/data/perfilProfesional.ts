@@ -36,6 +36,7 @@ export const perfilProfesional: PerfilProfesional = {
       descripcion:
         "Internado en Atención Primaria de Salud, desarrollando controles clínicos y actividades de promoción y prevención en salud sexual y reproductiva con enfoque familiar y comunitario. Experiencia en inserción y extracción de DIU T Cu e Implanon NXT.",
       url: "https://www.linkedin.com/in/samanta-gallardo/",
+      mostrarHito: false,
     },
 
     {
@@ -47,6 +48,7 @@ export const perfilProfesional: PerfilProfesional = {
       descripcion:
         "Experiencia clínica en las unidades de Recién Nacido Inmediato y Puerperio, realizando procedimientos clínicos, cuidados neonatales básicos, acompañamiento y educación a las familias.",
       url: "https://www.linkedin.com/in/samanta-gallardo/",
+      mostrarHito: false,
     },
 
     {
@@ -58,6 +60,7 @@ export const perfilProfesional: PerfilProfesional = {
       descripcion:
         "Internado desarrollado en Urgencia Ginecoobstétrica, Preparto-Parto y Alto Riesgo Obstétrico, realizando atención integral de matronería bajo normativas vigentes y promoviendo una atención respetuosa, humanizada y centrada en la persona.",
       url: "https://www.linkedin.com/in/samanta-gallardo/",
+      mostrarHito: false,
     },
 
     {
@@ -69,6 +72,7 @@ export const perfilProfesional: PerfilProfesional = {
       descripcion:
         "Participación en procesos de gestión en matronería, elaboración de manuales, protocolos y pautas de supervisión, además del desarrollo de herramientas de control para programas preventivos de salud sexual y reproductiva.",
       url: "https://www.linkedin.com/in/samanta-gallardo/",
+      mostrarHito: false,
     },
 
     {
@@ -80,6 +84,7 @@ export const perfilProfesional: PerfilProfesional = {
       descripcion:
         "Difusión de la oferta académica institucional en establecimientos educacionales, realización de charlas informativas y orientación a estudiantes sobre los procesos de ingreso universitario.",
       url: "https://www.linkedin.com/in/samanta-gallardo/",
+      mostrarHito: false,
     },
 
     {
@@ -91,6 +96,7 @@ export const perfilProfesional: PerfilProfesional = {
       descripcion:
         "Apoyo docente en Embriología mediante jornadas de acompañamiento pedagógico, resolución de dudas y tutorías orientadas al desarrollo de casos clínicos.",
       url: "https://www.linkedin.com/in/samanta-gallardo/",
+      mostrarHito: false,
     },
 
     {
@@ -103,6 +109,7 @@ export const perfilProfesional: PerfilProfesional = {
       descripcion:
         "Liderazgo y coordinación de iniciativas de vinculación con la comunidad orientadas a la promoción de la salud y Educación Sexual Integral, trabajando colaborativamente con instituciones externas y participando en actividades educativas para la comunidad.",
       url: "https://obstetricia.uv.cl/inicio/index.php/comite-vcmye/",
+      mostrarHito: false,
     },
     {
       id: "feria-salud-sexual-2022",
@@ -112,6 +119,7 @@ export const perfilProfesional: PerfilProfesional = {
       fecha: "2022",
       descripcion: "Participación en una instancia educativa sobre métodos anticonceptivos y prevención de infecciones de transmisión sexual dirigida a estudiantes.",
       url: "https://obstetricia.uv.cl/inicio/index.php/tag/educacion-sexual/",
+      mostrarHito: false,
     },
     {
       id: "matrona-universidad-valparaiso",
@@ -122,6 +130,7 @@ export const perfilProfesional: PerfilProfesional = {
       descripcion:
         "Formación profesional en Obstetricia y Puericultura, complementada con internados clínicos y comunitarios en atención primaria, salud sexual y reproductiva, neonatología y gestión en matronería.",
       url: "https://www.linkedin.com/in/samanta-gallardo/",
+      mostrarHito: true,
     },
 
     {
@@ -132,6 +141,7 @@ export const perfilProfesional: PerfilProfesional = {
       descripcion:
         "Capacitación orientada a la inserción y extracción del implante anticonceptivo subdérmico Implanon NXT.",
       url: "https://www.linkedin.com/in/samanta-gallardo/",
+      mostrarHito: false,
     },
   ],
 };

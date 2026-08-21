@@ -57,6 +57,8 @@ Cuando una persona cambia texto, precio, preguntas o datos en Google Sheets, **n
 
 Si modificas el código de `Code.gs`, sí debes actualizar el despliegue del Web App.
 
+Las alternativas tarifarias de PAP/VPH se editan en `Opciones_Prestacion`. El Apps Script las agrupa por `servicioId + prestacionId` y las entrega dentro de `prestacion.opciones`.
+
 ## Imágenes
 
 Las rutas locales existentes del Excel se resuelven mediante `src/api/resolverImagen.ts`.

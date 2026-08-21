@@ -41,7 +41,7 @@ export const servicios: CategoriaServicio[] = [
     id: "adultez-temprana",
     segmentoUrl: "adultez-temprana",
     titulo: "Adultez temprana",
-    rangoEdad: "20 - 35 años",
+    rangoEdad: "20 - 40 años",
     descripcionCorta:
       "Orientación preventiva y personalizada para tomar decisiones informadas sobre tu salud sexual y reproductiva.",
     introduccion:
@@ -65,7 +65,7 @@ export const servicios: CategoriaServicio[] = [
     id: "adultez-media",
     segmentoUrl: "adultez-media",
     titulo: "Adultez media",
-    rangoEdad: "35 - 64 años",
+    rangoEdad: "40 - 64 años",
     descripcionCorta:
       "Cuidado integral para acompañar los cambios físicos, hormonales y emocionales de esta etapa.",
     introduccion:

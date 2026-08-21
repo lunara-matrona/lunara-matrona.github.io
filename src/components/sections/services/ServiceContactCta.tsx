@@ -15,7 +15,7 @@ export default function ServiceContactCta() {
           <WhatsAppIcon sx={{ fontSize: 56, flexShrink: 0 }} />
           <Box sx={{ flex: 1 }}>
             <Typography sx={{ mb: 1, fontSize: ".76rem", fontWeight: 800, letterSpacing: ".14em", textTransform: "uppercase" }}>¿No estás segura de qué servicio elegir?</Typography>
-            <Typography variant="h2" sx={{ fontSize: { xs: "2rem", md: "2.75rem" }, lineHeight: 1.1 }}>Escríbenos y te orientamos</Typography>
+            <Typography variant="h2" sx={{ fontSize: { xs: "2rem", md: "2.75rem" }, lineHeight: 1.1 }}>Escríbeme y te oriento</Typography>
           </Box>
           <ButtonLink destino={urlReservaWhatsapp} externo variante="claro" sx={{ width: { xs: "100%", sm: "auto" }, flexShrink: 0 }}>Abrir WhatsApp</ButtonLink>
         </Stack>

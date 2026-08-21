@@ -9,6 +9,14 @@ import adultezTemprana from "./images/services/adultez-temprana.png";
 import gestacionPosparto from "./images/services/gestacion-posparto.png";
 import talleresGrupales from "./images/services/talleres-grupales.png";
 import anticoncepcion from "./images/services/prestations/anticoncepcion.png";
+import acompanamientoPreconcepcional from "./images/services/prestations/acompanamiento-preconcepcional.jpg";
+import cicloMenstrual from "./images/services/prestations/ciclo-menstrual.jpg";
+import climaterioMenopausia from "./images/services/prestations/climaterio-menopausia.jpg";
+import comienzoAcompanado from "./images/services/prestations/comienzo-acompanado.jpg";
+import consultaGeneral from "./images/services/prestations/consulta-general.jpg";
+import papVph from "./images/services/prestations/pap-vph.jpg";
+import preparacionParto from "./images/services/prestations/preparacion-parto.png";
+import saludGinecologica from "./images/services/prestations/salud-ginecologica.jpg";
 
 export const recursos = {
   marca: {
@@ -28,6 +36,14 @@ export const recursos = {
     talleresGrupales,
     prestaciones: {
       anticoncepcion,
+      acompanamientoPreconcepcional,
+      cicloMenstrual,
+      climaterioMenopausia,
+      comienzoAcompanado,
+      consultaGeneral,
+      papVph,
+      preparacionParto,
+      saludGinecologica,
     },
   },
 } as const;

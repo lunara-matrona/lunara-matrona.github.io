@@ -18,6 +18,14 @@ export interface PreguntaFrecuenteServicio {
   respuesta: string;
 }
 
+export interface OpcionPrestacionServicio {
+  id: string;
+  grupo: string;
+  titulo: string;
+  precio: string;
+  descripcion?: string;
+}
+
 export interface PrestacionServicio {
   id: string;
   titulo: string;
@@ -28,6 +36,8 @@ export interface PrestacionServicio {
   modalidad?: string;
   incluye?: string;
   detalles?: string[];
+  nota?: string;
+  opciones?: OpcionPrestacionServicio[];
 }
 
 export interface CategoriaServicio {
@@ -63,6 +73,7 @@ export interface HitoProfesional {
   descripcion?: string;
   imagen?: string;
   url?: string;
+  mostrarHito: boolean;
 }
 
 export interface PerfilProfesional {

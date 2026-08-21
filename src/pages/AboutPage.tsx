@@ -8,10 +8,10 @@ import AboutStory from "../components/sections/about/AboutStory";
 export default function AboutPage() {
   return (
     <>
-      {/* Composición de la página Nosotros. */}
-      <PageHero sobretitulo="Nosotros" titulo="Más que una consulta: un espacio para sentirte acompañada" descripcion="Lunara nace para acercar la educación y el cuidado en salud sexual y reproductiva a cada etapa de la vida." imagenFondo={recursos.inicio.portada} />
+      {/* Composición de la página Sobre mi. */}
+      <PageHero sobretitulo="Sobre Mi" titulo="Más que una consulta: un espacio para sentirte acompañada" descripcion="Lunara nace para acercar la educación y el cuidado en salud sexual y reproductiva a cada etapa de la vida." imagenFondo={recursos.inicio.portada} />
       <AboutProfessionalProfile />
-      <AboutStory />
+      {/* <AboutStory /> */}
       <AboutPrinciples />
       <AboutServicesCta />
     </>

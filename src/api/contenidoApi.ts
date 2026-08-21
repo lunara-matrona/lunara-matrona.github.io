@@ -34,6 +34,13 @@ function normalizarContenido(datos: ContenidoRemotoParcial): ContenidoSitio {
       ...testimonio,
       mostrarTestimonio: testimonio.mostrarTestimonio ?? true,
     })),
+    perfilProfesional: {
+      ...datos.perfilProfesional,
+      hitos: (datos.perfilProfesional.hitos ?? []).map((hito) => ({
+        ...hito,
+        mostrarHito: hito.mostrarHito ?? true,
+      })),
+    },
   };
 }
 

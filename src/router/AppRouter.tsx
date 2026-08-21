@@ -13,7 +13,7 @@ export default function AppRouter() {
       <Routes>
         <Route element={<PublicLayout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/nosotros" element={<AboutPage />} />
+          <Route path="/sobre-mi" element={<AboutPage />} />
           <Route path="/servicios" element={<ServicesPage />} />
           <Route path="/servicios/:segmentoUrl" element={<ServiceDetailPage />} />
           <Route path="/contacto" element={<ContactPage />} />

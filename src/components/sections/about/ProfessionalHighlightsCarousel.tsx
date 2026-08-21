@@ -21,6 +21,7 @@ const metadatosHitos: Record<TipoHitoProfesional, { etiqueta: string; icono: typ
 
 export default function CarruselHitosProfesionales({ hitos }: PropiedadesCarruselHitosProfesionales) {
   const referenciaCarrusel = useRef<HTMLDivElement>(null);
+  const hitosVisibles = hitos.filter((hito) => hito.mostrarHito);
 
   const desplazarCarrusel = (direccion: "izquierda" | "derecha") => {
     referenciaCarrusel.current?.scrollBy({
@@ -28,6 +29,10 @@ export default function CarruselHitosProfesionales({ hitos }: PropiedadesCarruse
       behavior: "smooth",
     });
   };
+
+  if (hitosVisibles.length === 0) {
+    return null;
+  }
 
   return (
     <Box sx={{ position: "relative" }}>
@@ -63,7 +68,7 @@ export default function CarruselHitosProfesionales({ hitos }: PropiedadesCarruse
           "&::-webkit-scrollbar": { display: "none" },
         }}
       >
-        {hitos.map((hito) => {
+        {hitosVisibles.map((hito) => {
           const metadatos = metadatosHitos[hito.tipo];
           const Icono = metadatos.icono;
 

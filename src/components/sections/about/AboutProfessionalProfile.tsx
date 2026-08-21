@@ -30,6 +30,9 @@ export default function AboutProfessionalProfile() {
       </Section>
     );
   }
+
+  const hitosVisibles = perfilProfesional.hitos.filter((hito) => hito.mostrarHito);
+
   return (
     <Section sx={{ bgcolor: "background.paper" }}>
       {/* Perfil profesional de la persona detrás de Lunara. */}
@@ -100,7 +103,7 @@ export default function AboutProfessionalProfile() {
           </Stack>
         </Box>
 
-        {perfilProfesional.hitos.length > 0 && (
+        {hitosVisibles.length > 0 && (
           <Box sx={{ mt: { xs: 6, md: 7.5 }, pt: { xs: 4, md: 5 }, borderTop: "1px solid", borderColor: "divider" }}>
             <Box
               sx={{
@@ -130,7 +133,7 @@ export default function AboutProfessionalProfile() {
               </Box>
             </Box>
 
-            <ProfessionalHighlightsCarousel hitos={perfilProfesional.hitos} />
+            <ProfessionalHighlightsCarousel hitos={hitosVisibles} />
           </Box>
         )}
       </PageContainer>

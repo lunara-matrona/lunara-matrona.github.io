@@ -10,6 +10,22 @@ const imagenesLocales: Record<string, string> = {
   "assets/images/services/talleres-grupales.png": recursos.servicios.talleresGrupales,
   "assets/images/services/prestations/anticoncepcion.png":
     recursos.servicios.prestaciones.anticoncepcion,
+  "assets/images/services/prestations/acompanamiento-preconcepcional.jpg":
+    recursos.servicios.prestaciones.acompanamientoPreconcepcional,
+  "assets/images/services/prestations/ciclo-menstrual.jpg":
+    recursos.servicios.prestaciones.cicloMenstrual,
+  "assets/images/services/prestations/climaterio-menopausia.jpg":
+    recursos.servicios.prestaciones.climaterioMenopausia,
+  "assets/images/services/prestations/comienzo-acompanado.jpg":
+    recursos.servicios.prestaciones.comienzoAcompanado,
+  "assets/images/services/prestations/consulta-general.jpg":
+    recursos.servicios.prestaciones.consultaGeneral,
+  "assets/images/services/prestations/pap-vph.jpg":
+    recursos.servicios.prestaciones.papVph,
+  "assets/images/services/prestations/preparacion-parto.png":
+    recursos.servicios.prestaciones.preparacionParto,
+  "assets/images/services/prestations/salud-ginecologica.jpg":
+    recursos.servicios.prestaciones.saludGinecologica,
 };
 
 /**

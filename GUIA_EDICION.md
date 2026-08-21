@@ -19,7 +19,7 @@ Los tipos compartidos están en `src/types/contenido.ts`.
 La estructura editable utiliza propiedades en español, por ejemplo:
 
 - `titulo`, `descripcion`, `imagen`, `precio`;
-- `duracion`, `modalidad`, `incluye`, `detalles`;
+- `duracion`, `modalidad`, `incluye`, `detalles`, `nota`, `opciones`;
 - `segmentoUrl`, `rangoEdad`, `descripcionCorta`;
 - `preguntasFrecuentes`, `prestaciones`, `avisos`;
 - `nombre`, `comentario`, `puntuacion`;
@@ -50,6 +50,16 @@ Cada prestación en `src/data/prestaciones.ts` puede contener:
 - `modalidad`;
 - `incluye`;
 - `detalles`.
+
+Si la prestación tiene subservicios o alternativas con precios independientes, agrégalos en la hoja `Opciones_Prestacion`. Cada fila debe indicar:
+
+- `servicioId`: categoría a la que pertenece;
+- `prestacionId`: el `id` exacto de la prestación principal;
+- `id`: identificador único de la alternativa;
+- `grupo`: encabezado bajo el que se mostrará;
+- `titulo`, `precio` y una `descripcion` opcional.
+
+La columna `nota` de `Prestaciones` se usa para advertencias o aclaraciones generales, por ejemplo para explicar que el procesamiento de PAP/VPH se cobra por separado.
 
 `ServiceDetailPage` obtiene la categoría desde `servicios` utilizando `segmentoUrl` y entrega la información a los componentes de detalle.
 
