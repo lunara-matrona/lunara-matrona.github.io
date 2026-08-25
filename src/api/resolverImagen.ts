@@ -2,6 +2,7 @@ import { recursos } from "../assets";
 
 const imagenesLocales: Record<string, string> = {
   "assets/images/home/hero-lunara.png": recursos.inicio.portada,
+  "assets/images/home/hero-lunara-2.jpg": recursos.inicio.perfilProfesional,
   "assets/images/home/ruta-acompanamiento.png": recursos.inicio.rutaAcompanamiento,
   "assets/images/services/adolescencia.png": recursos.servicios.adolescencia,
   "assets/images/services/adultez-temprana.png": recursos.servicios.adultezTemprana,

@@ -2,6 +2,7 @@ import logoLunaraBlancoCuadrado from "./images/brand/lunara-logo-white.png";
 import logoLunaraBlanco from "./images/brand/lunara-logo-white-wide.png";
 import simboloLunaraBlanco from "./images/brand/lunara-symbol-white.png";
 import portadaLunara from "./images/home/hero-lunara.png";
+import perfilProfesionalLunara from "./images/home/hero-lunara-2.jpg";
 import rutaAcompanamiento from "./images/home/ruta-acompanamiento.png";
 import adolescencia from "./images/services/adolescencia.png";
 import adultezMedia from "./images/services/adultez-media.png";
@@ -26,6 +27,7 @@ export const recursos = {
   },
   inicio: {
     portada: portadaLunara,
+    perfilProfesional: perfilProfesionalLunara,
     rutaAcompanamiento,
   },
   servicios: {
