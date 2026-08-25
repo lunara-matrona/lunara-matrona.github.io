@@ -16,7 +16,7 @@ export default function HomeHero() {
       <PageContainer sx={{ position: "relative", zIndex: 1, py: { xs: 10, md: 10 } }}>
         <Box sx={{ maxWidth: 760, color: "common.white" }}>
           <Typography sx={{ mb: 2.25, fontSize: ".78rem", fontWeight: 800, letterSpacing: ".18em", textTransform: "uppercase" }}>Atención de matrona a domicilio</Typography>
-          <Typography variant="h1" sx={{ mb: 3, fontSize: { xs: "clamp(2.8rem, 14vw, 4rem)", sm: "4.4rem", md: "clamp(3rem, 6vw, 5.8rem)" }, lineHeight: .98 }}>
+          <Typography variant="h1" sx={{ mb: 3, fontSize: { xs: "clamp(2.8rem, 14vw, 3.3rem)", sm: "4.4rem", md: "clamp(3rem, 6vw, 5.8rem)" }, lineHeight: .98 }}>
             Acompañamiento en cada etapa de tu salud sexual y reproductiva
           </Typography>
           <Typography sx={{ maxWidth: 650, mb: 4.25, color: "rgba(255,255,255,.91)", fontSize: { xs: "1rem", md: "1.18rem" }, lineHeight: 1.75 }}>
